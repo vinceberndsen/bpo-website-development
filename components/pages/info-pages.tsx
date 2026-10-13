@@ -61,8 +61,8 @@ export function HowItWorksPage({ locale, dict }: PageProps) {
       </Section>
 
       <CtaBand
-        title={dict.home.finalCta.title}
-        body={dict.home.finalCta.body}
+        title={dict.closingCta.title}
+        body={dict.closingCta.body}
         primary={{ href: p(paths.contact), label: dict.common.discussYourTeam }}
       />
     </>
@@ -126,7 +126,7 @@ export function AboutPage({ locale, dict }: PageProps) {
       <PageHero eyebrow={t.hero.eyebrow} title={t.hero.title} intro={t.hero.intro} image="athensAcropolis" imageAlt={dict.images.athensAcropolis} />
 
       <Section labelledBy="philosophy-title">
-        <SectionHeader id="philosophy-title" title={t.philosophy.title} />
+        <SectionHeader id="philosophy-title" title={t.philosophy.title} intro={t.philosophy.intro} />
         <div className="mt-10">
           <FeatureGrid items={t.philosophy.items} />
         </div>
@@ -162,8 +162,8 @@ export function AboutPage({ locale, dict }: PageProps) {
       )}
 
       <CtaBand
-        title={dict.home.finalCta.title}
-        body={dict.home.finalCta.body}
+        title={dict.closingCta.title}
+        body={dict.closingCta.body}
         primary={{ href: p(paths.contact), label: dict.common.discussYourTeam }}
         secondary={{ href: p(paths.careers), label: dict.nav.careers }}
       />

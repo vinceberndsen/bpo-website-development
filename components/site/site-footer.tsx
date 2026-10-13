@@ -31,7 +31,10 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
     <footer className="bg-primary text-primary-foreground">
       <div className="container-page grid gap-12 py-16 lg:grid-cols-12">
         <div className="flex flex-col gap-6 lg:col-span-4">
-          <Logo href={p(paths.home)} tone="light" />
+          <div className="flex flex-col gap-3">
+            <Logo href={p(paths.home)} tone="light" />
+            <p className="text-xs font-semibold uppercase tracking-widest text-teal-light">{dict.brand.descriptor}</p>
+          </div>
           <p className="max-w-sm text-sm leading-relaxed text-navy-muted">{dict.footer.proposition}</p>
           <div>
             <LanguageSwitcher

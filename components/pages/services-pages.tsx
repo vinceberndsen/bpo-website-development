@@ -76,8 +76,8 @@ export function ServicesOverviewPage({ locale, dict }: { locale: Locale; dict: D
         </div>
       </Section>
       <CtaBand
-        title={dict.home.finalCta.title}
-        body={dict.home.finalCta.body}
+        title={dict.closingCta.title}
+        body={dict.closingCta.body}
         primary={{ href: p(paths.contact), label: dict.common.discussYourTeam }}
         secondary={{ href: p(paths.howItWorks), label: dict.common.seeHowItWorks }}
       />
@@ -145,8 +145,8 @@ export function ServiceDetailPage({ locale, dict, slug }: { locale: Locale; dict
       </Section>
 
       <CtaBand
-        title={dict.home.finalCta.title}
-        body={dict.home.finalCta.body}
+        title={dict.closingCta.title}
+        body={dict.closingCta.body}
         primary={{ href: p(paths.contact), label: dict.common.discussYourTeam }}
       />
     </>

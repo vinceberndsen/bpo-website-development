@@ -2,15 +2,26 @@
  * English source dictionary. This file defines the shape every other language must match
  * (TypeScript will flag missing or misspelt keys in nl/nb/sv/da/fi).
  * Translations are drafts for native-speaker review; they have not been professionally reviewed.
+ * Brand messaging (descriptor, taglines, hero, CTAs) comes from lib/config/company.ts.
  */
+import { brandMessaging, company } from '@/lib/config/company'
+
+const brand = brandMessaging.en
+
 export const en = {
+  brand,
+
+  /** Closing call to action on inner pages; the homepage closes with the brand tagline instead. */
+  closingCta: {
+    title: 'Let’s design the right team for your business.',
+    body: 'Tell us about your customers, languages and coverage needs. We will come back to you to discuss what a dedicated team could look like.',
+  },
+
   meta: {
-    siteDescription:
-      'Dedicated customer-care teams of 3–10 people, based in Greece, for Dutch-speaking and Nordic markets.',
+    siteDescription: brand.metaDescription,
     home: {
-      title: 'Dedicated customer-care teams for Dutch-speaking and Nordic markets',
-      description:
-        'We build and manage small, dedicated customer-care teams in Greece for Dutch-speaking and Nordic markets — recruited, trained and managed around your customers, processes and brand.',
+      title: `${company.name} | ${brand.descriptor}`,
+      description: brand.metaDescription,
     },
     services: {
       title: 'Services',
@@ -28,9 +39,8 @@ export const en = {
         'Our focus on the Netherlands, Dutch-speaking Belgium, Norway, Sweden, Denmark and Finland, and how delivery languages are confirmed for each project.',
     },
     about: {
-      title: 'About us',
-      description:
-        'A boutique customer-operations partner built on small teams, personal accountability and Greece-based delivery.',
+      title: `About ${company.name}`,
+      description: `${company.name} is a Greece-based boutique customer-operations partner focused on small, dedicated teams for Dutch-speaking and Nordic markets.`,
     },
     careers: {
       title: 'Careers',
@@ -50,8 +60,9 @@ export const en = {
 
   common: {
     skipToContent: 'Skip to main content',
-    discussYourTeam: 'Discuss your team',
-    seeHowItWorks: 'See how it works',
+    discussYourTeam: brand.primaryCta,
+    seeHowItWorks: brand.secondaryCta,
+    homeLabel: `${company.name} — home`,
     learnMore: 'Learn more',
     viewService: 'View service',
     allServices: 'All services',
@@ -75,8 +86,7 @@ export const en = {
   },
 
   footer: {
-    proposition:
-      'Small teams. Deep expertise. Customer care that feels in-house. Dedicated teams in Greece for Dutch-speaking and Nordic markets.',
+    proposition: 'Dedicated customer-care teams of 3–10 people, based in Greece, for Dutch-speaking and Nordic markets.',
     pagesHeading: 'Company',
     servicesHeading: 'Services',
     legalHeading: 'Legal',
@@ -105,10 +115,9 @@ export const en = {
 
   home: {
     hero: {
-      eyebrow: 'Small teams. Deep expertise. Customer care that feels in-house.',
-      title: 'Dedicated customer-care teams that feel like your own.',
-      intro:
-        'Small, specialist teams in Greece for Dutch-speaking and Nordic markets. We recruit, train and manage your team around your customers, processes and brand.',
+      eyebrow: brand.tagline,
+      title: brand.heroHeadline,
+      intro: brand.heroCopy,
     },
     strip: {
       label: 'What we offer',
@@ -298,8 +307,8 @@ export const en = {
       ],
     },
     finalCta: {
-      title: 'Let’s design the right team for your business.',
-      body: 'Tell us about your customers, languages and coverage needs. We will come back to you to discuss what a dedicated team could look like.',
+      title: brand.tagline,
+      body: brand.finalCtaBody,
     },
   },
 
@@ -639,13 +648,14 @@ export const en = {
 
   about: {
     hero: {
-      eyebrow: 'About us',
-      title: 'A boutique customer-operations partner, deliberately small',
-      intro:
-        'We believe customer care works best when a small team knows your business well and someone is personally accountable for the result.',
+      eyebrow: `About ${company.name}`,
+      title: brand.secondaryLine,
+      intro: `${company.name} is a Greece-based boutique customer-operations partner focused on small, dedicated teams for Dutch-speaking and Nordic markets.`,
     },
     philosophy: {
       title: 'What we believe in',
+      intro:
+        'We help SMEs and specialist departments within larger organisations build customer-care teams around their own processes, customers and brand—with clear accountability and hands-on management.',
       items: [
         {
           title: 'Small teams',

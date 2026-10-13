@@ -23,9 +23,16 @@ export async function generateMetadata({ params }: LayoutProps<'/[locale]'>): Pr
   if (!isLocale(locale)) return {}
   const dict = getDictionary(locale)
   return {
-    title: { default: company.name, template: `%s | ${company.name}` },
+    title: { default: `${company.name} | ${dict.brand.descriptor}`, template: `%s | ${company.name}` },
     description: dict.meta.siteDescription,
     applicationName: company.name,
+    icons: {
+      icon: [
+        { url: '/icon.svg', type: 'image/svg+xml' },
+        { url: '/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+      ],
+      apple: '/apple-icon.png',
+    },
     metadataBase: siteUrl ? new URL(siteUrl) : undefined,
     robots: canIndex ? { index: true, follow: true } : { index: false, follow: false },
   }

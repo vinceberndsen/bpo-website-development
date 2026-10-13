@@ -15,7 +15,7 @@ type PageMetadataInput = {
 }
 
 export function buildMetadata({ locale, path, title, description, absoluteTitle }: PageMetadataInput): Metadata {
-  const fullTitle = absoluteTitle ? `${title} | ${company.name}` : title
+  const fullTitle = absoluteTitle ? title : `${title} | ${company.name}`
 
   const metadata: Metadata = {
     title: absoluteTitle ? { absolute: fullTitle } : title,
