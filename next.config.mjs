@@ -1,15 +1,17 @@
 /**
  * Guard: a production deployment must not silently ship enquiry forms that go nowhere.
- * Configure FORM_WEBHOOK_URL (see README > "Form integration"), or set
- * ALLOW_UNCONFIGURED_FORMS=true to deliberately launch with the "not enabled" notice.
+ * Delivery works via Resend (RESEND_API_KEY) or a webhook (FORM_WEBHOOK_URL).
+ * Set ALLOW_UNCONFIGURED_FORMS=true to deliberately launch with the "not enabled" notice.
  */
+const hasFormDelivery = Boolean(process.env.RESEND_API_KEY || process.env.FORM_WEBHOOK_URL)
+
 if (
   process.env.VERCEL_ENV === 'production' &&
-  !process.env.FORM_WEBHOOK_URL &&
+  !hasFormDelivery &&
   process.env.ALLOW_UNCONFIGURED_FORMS !== 'true'
 ) {
   throw new Error(
-    'FORM_WEBHOOK_URL is not set for the production deployment. Configure form delivery or set ALLOW_UNCONFIGURED_FORMS=true. See README.md.',
+    'No form delivery is configured for the production deployment. Set RESEND_API_KEY (Resend integration) or FORM_WEBHOOK_URL, or set ALLOW_UNCONFIGURED_FORMS=true. See README.md.',
   )
 }
 
