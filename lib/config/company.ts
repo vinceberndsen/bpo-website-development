@@ -30,10 +30,10 @@ export type CompanyConfig = {
 
 export const company: CompanyConfig = {
   name: 'Relavique',
-  legalName: null,
-  registrationNumber: null,
-  vatNumber: null,
-  registeredAddress: null,
+  legalName: 'Hatch Europe Consulting',
+  registrationNumber: '1005.878.023',
+  vatNumber: 'BE1005.878.023',
+  registeredAddress: 'Sterstraat 66a, 3920 Lommel, Belgium',
   email: null,
   phone: null,
   social: {
