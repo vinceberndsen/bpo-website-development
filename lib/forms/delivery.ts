@@ -51,7 +51,9 @@ async function deliverByEmail(kind: FormKind, payload: Record<string, unknown>):
 
   const { error } = await resend.emails.send(
     {
-      from: process.env.RESEND_FROM_EMAIL || `${company.name} website <onboarding@resend.dev>`,
+      from:
+        process.env.RESEND_FROM_EMAIL ||
+        `${company.name} website <noreply@${process.env.RESEND_EMAIL_DOMAIN || 'resend.dev'}>`,
       to: [process.env.FORM_RECIPIENT_EMAIL || defaultFormRecipient],
       replyTo,
       subject: `[${company.name}] ${subjects[kind]}${name ? ` — ${name}` : ''}`,
