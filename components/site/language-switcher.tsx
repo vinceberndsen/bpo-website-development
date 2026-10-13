@@ -24,7 +24,12 @@ type Props = {
   tone?: 'default' | 'light'
 }
 
-export function LanguageSwitcher({ locale, label, selectLabel, tone = 'default' }: Props) {
+export function LanguageSwitcher(props: Props) {
+  if (locales.length < 2) return null
+  return <LanguageSwitcherMenu {...props} />
+}
+
+function LanguageSwitcherMenu({ locale, label, selectLabel, tone = 'default' }: Props) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
@@ -128,7 +133,12 @@ function LanguageList({
 }
 
 /** Flat list variant used inside the mobile menu. */
-export function LanguageListInline({ locale, label }: { locale: Locale; label: string }) {
+export function LanguageListInline(props: { locale: Locale; label: string }) {
+  if (locales.length < 2) return null
+  return <LanguageListInlineInner {...props} />
+}
+
+function LanguageListInlineInner({ locale, label }: { locale: Locale; label: string }) {
   const hrefFor = useLocalisedHref()
   return (
     <nav aria-label={label}>

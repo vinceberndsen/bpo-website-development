@@ -28,7 +28,7 @@ export type CompanyConfig = {
 }
 
 export const company: CompanyConfig = {
-  name: '[COMPANY NAME]',
+  name: 'Relavique',
   legalName: null,
   registrationNumber: null,
   vatNumber: null,

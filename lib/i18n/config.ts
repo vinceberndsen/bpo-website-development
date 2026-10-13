@@ -1,6 +1,13 @@
-export const locales = ['en', 'nl', 'nb', 'sv', 'da', 'fi'] as const
+export const supportedLocales = ['en', 'nl', 'nb', 'sv', 'da', 'fi'] as const
 
-export type Locale = (typeof locales)[number]
+export type Locale = (typeof supportedLocales)[number]
+
+/**
+ * Locales that are actually served (routes, language switcher, sitemap, hreflang).
+ * Add a locale here only once its dictionary in ./dictionaries exists and has been reviewed,
+ * so English copy is never published under a translated URL.
+ */
+export const locales: readonly Locale[] = ['en']
 
 export const defaultLocale: Locale = 'en'
 
