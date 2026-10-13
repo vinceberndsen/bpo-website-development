@@ -50,7 +50,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
   const dict = getDictionary(locale)
 
   return (
-    <html lang={locale} className={`${inter.variable} ${sourceSerif.variable} bg-background`}>
+    <html lang={locale === 'en' ? 'en-GB' : locale} className={`${inter.variable} ${sourceSerif.variable} bg-background`}>
       <body className="flex min-h-svh flex-col">
         <a
           href="#main"
