@@ -51,6 +51,7 @@ export function EnquiryForm({
         options={languageOptionKeys.map((k) => ({ value: k, label: dict.enquiry.languageOptions[k] }))}
         {...common}
       />
+      <TextField name="otherLanguage" label={f.otherLanguage} hint={f.otherLanguageHint} {...common} />
       <ChoiceGroup
         name="teamSize"
         legend={f.teamSize}

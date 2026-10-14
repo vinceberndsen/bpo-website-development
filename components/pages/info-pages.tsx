@@ -5,6 +5,7 @@ import { localePath, paths } from '@/lib/routes'
 import { CheckList, FeatureGrid } from '@/components/ui-kit/blocks'
 import { ButtonLink } from '@/components/ui-kit/button-link'
 import { CtaBand } from '@/components/ui-kit/cta-band'
+import { ExperienceList } from '@/components/ui-kit/experience-list'
 import { PageHero } from '@/components/ui-kit/page-hero'
 import { Photo } from '@/components/ui-kit/photo'
 import { Section, SectionHeader } from '@/components/ui-kit/section'
@@ -29,7 +30,15 @@ export function HowItWorksPage({ locale, dict }: PageProps) {
                 {dict.common.stepLabel} {i + 1}
               </span>
               <h3 className="font-serif text-2xl font-medium leading-snug md:col-span-4">{step.title}</h3>
-              <p className="leading-relaxed text-muted-foreground md:col-span-6 md:pt-1">{step.body}</p>
+              <div className="flex flex-col gap-4 md:col-span-6 md:pt-1">
+                <p className="leading-relaxed text-muted-foreground">{step.body}</p>
+                {step.points.length > 0 && (
+                  <div>
+                    <p className="mb-3 text-sm font-semibold">{step.pointsLabel}</p>
+                    <CheckList items={step.points} className="text-sm" />
+                  </div>
+                )}
+              </div>
             </li>
           ))}
         </ol>
@@ -74,7 +83,7 @@ export function MarketsPage({ locale, dict }: PageProps) {
   const p = (path: string) => localePath(locale, path)
   return (
     <>
-      <PageHero eyebrow={t.hero.eyebrow} title={t.hero.title} intro={t.hero.intro} image="markets" imageAlt={dict.images.markets} />
+      <PageHero eyebrow={t.hero.eyebrow} title={t.hero.title} intro={t.hero.intro} image="athensView" imageAlt={dict.images.athensView} />
 
       <Section labelledBy="distinction-title">
         <SectionHeader id="distinction-title" title={t.distinction.title} />
@@ -110,9 +119,13 @@ export function MarketsPage({ locale, dict }: PageProps) {
         <div className="mt-10">
           <FeatureGrid items={t.principles.items} columns={4} />
         </div>
+        <aside className="mt-10 rounded-lg border border-accent/30 bg-muted p-6 sm:p-8">
+          <h3 className="font-semibold">{t.otherLanguages.title}</h3>
+          <p className="mt-2 max-w-3xl leading-relaxed text-muted-foreground">{t.otherLanguages.body}</p>
+        </aside>
       </Section>
 
-      <CtaBand title={t.cta.title} body={t.cta.body} primary={{ href: p(paths.contact), label: dict.common.discussYourTeam }} />
+      <CtaBand title={t.cta.title} body={t.cta.body} primary={{ href: p(paths.contact), label: t.cta.button }} />
     </>
   )
 }
@@ -130,6 +143,25 @@ export function AboutPage({ locale, dict }: PageProps) {
         <div className="mt-10">
           <FeatureGrid items={t.philosophy.items} />
         </div>
+      </Section>
+
+      <Section tone="navy" labelledBy="experience-title">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <SectionHeader id="experience-title" tone="light" eyebrow={t.experience.eyebrow} title={t.experience.title} />
+            <div className="mt-6 flex flex-col gap-4 leading-relaxed text-navy-muted">
+              {t.experience.paragraphs.map((para) => (
+                <p key={para}>{para}</p>
+              ))}
+            </div>
+          </div>
+          <div className="lg:col-span-6">
+            <h3 className="mb-5 font-semibold">{t.experience.connectionsTitle}</h3>
+            <CheckList items={t.experience.connections} tone="light" className="text-navy-muted" />
+          </div>
+        </div>
+        <ExperienceList dict={dict} tone="light" className="mt-12 border-t border-white/15 pt-10" />
+        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-navy-muted">{t.experience.scopeNote}</p>
       </Section>
 
       <Section tone="muted" labelledBy="greece-title">
@@ -175,7 +207,7 @@ export function CareersIntro({ dict }: { dict: Dictionary }) {
   const t = dict.careers
   return (
     <>
-      <PageHero eyebrow={t.hero.eyebrow} title={t.hero.title} intro={t.hero.intro} image="customerCare" imageAlt={dict.images.customerCare}>
+      <PageHero eyebrow={t.hero.eyebrow} title={t.hero.title} intro={t.hero.intro} image="athensStreet" imageAlt={dict.images.athensStreet}>
         <ButtonLink href="#interest-form" withArrow>
           {t.form.title}
         </ButtonLink>

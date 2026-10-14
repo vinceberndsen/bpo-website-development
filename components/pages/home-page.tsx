@@ -6,6 +6,7 @@ import { localePath, paths, serviceSlugs } from '@/lib/routes'
 import { CheckList, Faq, FeatureGrid, ProcessSteps } from '@/components/ui-kit/blocks'
 import { ButtonLink, TextLink } from '@/components/ui-kit/button-link'
 import { CtaBand } from '@/components/ui-kit/cta-band'
+import { ExperienceList } from '@/components/ui-kit/experience-list'
 import { Photo } from '@/components/ui-kit/photo'
 import { Eyebrow, Section, SectionHeader } from '@/components/ui-kit/section'
 
@@ -19,16 +20,19 @@ export function HomePage({ locale, dict }: { locale: Locale; dict: Dictionary })
         <div className="container-page grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-12 lg:gap-14 lg:py-24">
           <div className="lg:col-span-6">
             <Eyebrow>{t.hero.eyebrow}</Eyebrow>
-            <h1 className="font-serif text-4xl font-medium leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="font-serif text-4xl font-medium leading-[1.06] tracking-tight text-balance sm:text-5xl lg:text-6xl">
               {t.hero.title}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">{t.hero.intro}</p>
+            <p className="mt-4 max-w-xl border-l-2 border-accent pl-4 text-sm leading-relaxed text-muted-foreground">
+              {t.hero.shortLine}
+            </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href={p(paths.contact)} withArrow>
                 {dict.common.discussYourTeam}
               </ButtonLink>
-              <ButtonLink href={p(paths.howItWorks)} variant="outline">
-                {dict.common.seeHowItWorks}
+              <ButtonLink href={p(paths.services)} variant="outline">
+                {dict.common.exploreExpertise}
               </ButtonLink>
             </div>
           </div>
@@ -55,11 +59,17 @@ export function HomePage({ locale, dict }: { locale: Locale; dict: Dictionary })
         </div>
       </section>
 
-      <Section labelledBy="why-title">
+      <Section labelledBy="resolution-title">
         <div className="grid gap-12 lg:grid-cols-12">
-          <SectionHeader id="why-title" eyebrow={t.why.eyebrow} title={t.why.title} intro={t.why.intro} className="lg:col-span-5" />
+          <SectionHeader
+            id="resolution-title"
+            eyebrow={t.resolution.eyebrow}
+            title={t.resolution.title}
+            intro={t.resolution.intro}
+            className="lg:col-span-5"
+          />
           <ul className="flex flex-col divide-y border-y lg:col-span-7">
-            {t.why.points.map((point) => (
+            {t.resolution.points.map((point) => (
               <li key={point.title} className="grid gap-2 py-6 sm:grid-cols-3 sm:gap-6">
                 <h3 className="font-semibold">{point.title}</h3>
                 <p className="leading-relaxed text-muted-foreground sm:col-span-2">{point.body}</p>
@@ -70,17 +80,20 @@ export function HomePage({ locale, dict }: { locale: Locale; dict: Dictionary })
       </Section>
 
       <Section tone="muted" labelledBy="services-title">
-        <SectionHeader id="services-title" eyebrow={t.services.eyebrow} title={t.services.title} intro={t.services.intro} />
-        <ul className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <SectionHeader id="services-title" eyebrow={t.services.eyebrow} title={t.services.title} intro={t.services.intro} />
+          <TextLink href={p(paths.services)}>{dict.common.allServices}</TextLink>
+        </div>
+        <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {serviceSlugs.map((slug) => {
             const s = dict.services.items[slug]
             return (
               <li key={slug}>
                 <Link
                   href={p(paths.service(slug))}
-                  className="group flex h-full flex-col gap-4 rounded-lg border bg-card p-6 shadow-sm transition-shadow hover:shadow-md sm:p-8"
+                  className="group flex h-full flex-col gap-4 rounded-lg border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
                 >
-                  <h3 className="font-serif text-xl font-medium">{s.name}</h3>
+                  <h3 className="font-serif text-xl font-medium leading-snug">{s.name}</h3>
                   <p className="flex-1 leading-relaxed text-muted-foreground">{s.summary}</p>
                   <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
                     {dict.common.viewService}
@@ -93,39 +106,56 @@ export function HomePage({ locale, dict }: { locale: Locale; dict: Dictionary })
         </ul>
       </Section>
 
-      <Section labelledBy="clients-title">
-        <SectionHeader id="clients-title" eyebrow={t.clients.eyebrow} title={t.clients.title} />
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {t.clients.items.map((client) => (
-            <article key={client.title} className="flex flex-col gap-4 rounded-lg border bg-card p-6 sm:p-8">
-              <h3 className="font-serif text-2xl font-medium leading-snug">{client.title}</h3>
-              <p className="leading-relaxed text-muted-foreground">{client.body}</p>
-              <CheckList items={client.points} className="mt-2" />
-            </article>
-          ))}
+      <Section labelledBy="layer-title">
+        <SectionHeader id="layer-title" eyebrow={t.layer.eyebrow} title={t.layer.title} intro={t.layer.intro} />
+        <div className="mt-12">
+          <FeatureGrid items={t.layer.models} columns={3} />
+        </div>
+        <p className="mt-8 max-w-3xl leading-relaxed text-muted-foreground">{t.layer.note}</p>
+      </Section>
+
+      <Section tone="navy" labelledBy="experience-title">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <SectionHeader
+              id="experience-title"
+              tone="light"
+              eyebrow={t.experience.eyebrow}
+              title={t.experience.title}
+              intro={t.experience.intro}
+            />
+            <Link
+              href={p(paths.about)}
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-light hover:underline"
+            >
+              {t.experience.cta}
+              <ArrowRight aria-hidden="true" className="size-4" />
+            </Link>
+          </div>
+          <ExperienceList dict={dict} tone="light" className="lg:col-span-7 lg:pt-2" />
         </div>
       </Section>
 
-      <Section tone="navy" labelledBy="dedicated-title">
+      <Section labelledBy="dedicated-title">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <Photo name="dedicated" alt={dict.images.dedicated} className="aspect-[4/3] lg:col-span-5" />
           <div className="lg:col-span-7">
-            <SectionHeader id="dedicated-title" tone="light" eyebrow={t.dedicated.eyebrow} title={t.dedicated.title} intro={t.dedicated.intro} />
+            <SectionHeader id="dedicated-title" eyebrow={t.dedicated.eyebrow} title={t.dedicated.title} intro={t.dedicated.intro} />
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
               <div>
                 <h3 className="mb-4 font-semibold">{t.dedicated.dedicatedHeading}</h3>
-                <CheckList items={t.dedicated.dedicatedItems} tone="light" className="text-navy-muted" />
+                <CheckList items={t.dedicated.dedicatedItems} />
               </div>
-              <div className="border-t border-white/15 pt-8 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-8">
+              <div className="border-t pt-8 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-8">
                 <h3 className="mb-4 font-semibold">{t.dedicated.sharedHeading}</h3>
-                <CheckList items={t.dedicated.sharedItems} tone="light" className="text-navy-muted" />
+                <CheckList items={t.dedicated.sharedItems} />
               </div>
             </div>
           </div>
         </div>
       </Section>
 
-      <Section labelledBy="process-title">
+      <Section tone="muted" labelledBy="process-title">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeader id="process-title" eyebrow={t.process.eyebrow} title={t.process.title} />
           <TextLink href={p(paths.howItWorks)}>{t.process.cta}</TextLink>
@@ -135,7 +165,7 @@ export function HomePage({ locale, dict }: { locale: Locale; dict: Dictionary })
         </div>
       </Section>
 
-      <Section tone="muted" labelledBy="markets-title">
+      <Section labelledBy="markets-title">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionHeader id="markets-title" eyebrow={t.markets.eyebrow} title={t.markets.title} intro={t.markets.body} />
@@ -144,22 +174,20 @@ export function HomePage({ locale, dict }: { locale: Locale; dict: Dictionary })
             </TextLink>
           </div>
           <div className="flex flex-col gap-6 lg:col-span-7">
-            <div className="grid gap-6 sm:grid-cols-2">
-              <article className="rounded-lg border bg-card p-6">
-                <h3 className="font-serif text-xl font-medium">{t.markets.dutchTitle}</h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{t.markets.dutchBody}</p>
-              </article>
-              <article className="rounded-lg border bg-card p-6">
-                <h3 className="font-serif text-xl font-medium">{t.markets.nordicTitle}</h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{t.markets.nordicBody}</p>
-              </article>
-            </div>
-            <p className="rounded-lg border border-accent/30 bg-card px-5 py-4 text-sm leading-relaxed">{t.markets.note}</p>
+            <ul className="grid gap-6 sm:grid-cols-2">
+              {t.markets.items.map((item) => (
+                <li key={item.title} className="rounded-lg border bg-card p-6">
+                  <h3 className="font-serif text-xl font-medium">{item.title}</h3>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">{item.body}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="rounded-lg border border-accent/30 bg-muted px-5 py-4 text-sm leading-relaxed">{t.markets.note}</p>
           </div>
         </div>
       </Section>
 
-      <Section labelledBy="greece-title">
+      <Section tone="muted" labelledBy="greece-title">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-6">
             <SectionHeader id="greece-title" eyebrow={t.greece.eyebrow} title={t.greece.title} />
@@ -171,13 +199,6 @@ export function HomePage({ locale, dict }: { locale: Locale; dict: Dictionary })
             <CheckList items={t.greece.points} className="mt-8" />
           </div>
           <Photo name="athensView" alt={dict.images.athensView} className="aspect-[4/3] lg:col-span-6" />
-        </div>
-      </Section>
-
-      <Section tone="muted" labelledBy="clarity-title">
-        <SectionHeader id="clarity-title" eyebrow={t.clarity.eyebrow} title={t.clarity.title} intro={t.clarity.intro} />
-        <div className="mt-12">
-          <FeatureGrid items={t.clarity.items} columns={4} />
         </div>
       </Section>
 
@@ -194,7 +215,6 @@ export function HomePage({ locale, dict }: { locale: Locale; dict: Dictionary })
         title={t.finalCta.title}
         body={t.finalCta.body}
         primary={{ href: p(paths.contact), label: dict.common.discussYourTeam }}
-        secondary={{ href: p(paths.howItWorks), label: dict.common.seeHowItWorks }}
       />
     </>
   )

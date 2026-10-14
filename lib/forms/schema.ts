@@ -10,9 +10,17 @@ export type FormState = {
 
 export const initialFormState: FormState = { status: 'idle', errors: {}, values: {} }
 
-export const languageOptionKeys = ['dutch', 'norwegian', 'swedish', 'danish', 'finnish', 'english', 'other'] as const
+export const languageOptionKeys = [
+  'dutch',
+  'germanGermany',
+  'germanSwitzerland',
+  'germanAustria',
+  'norwegian',
+  'english',
+  'other',
+] as const
 export const teamSizeKeys = ['3-5', '6-10', '11+', 'unsure'] as const
-export const serviceOptionKeys = ['care', 'specialist', 'operations', 'unsure'] as const
+export const serviceOptionKeys = ['specialist', 'dealer', 'b2b', 'care', 'backOffice', 'unsure'] as const
 
 /** Honeypot field name and the minimum time (ms) a human needs to fill in a form. */
 export const HONEYPOT_FIELD = 'website_confirm'

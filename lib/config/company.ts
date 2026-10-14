@@ -6,15 +6,44 @@ import type { Locale } from '@/lib/i18n/config'
  * Every optional field is `null` until a verified value is supplied. Components only
  * render a detail (email, phone, address, registration, social links, founder bio)
  * when its value is set here, so the site never publishes fictitious information.
- * See README.md > "Company details" and LAUNCH-CHECKLIST.md.
+ * See LAUNCH-CHECKLIST.md.
  */
-export type CompanyConfig = {
-  /** Brand name. Not the registered legal entity name — that goes in `legalName` once confirmed. */
-  name: string
-  legalName: string | null
+type LegalEntity = {
+  name: string | null
+  /** Legal form (e.g. BV/SRL, IKE). Not yet supplied. */
+  legalForm: string | null
   registrationNumber: string | null
   vatNumber: string | null
   registeredAddress: string | null
+}
+
+/**
+ * - `belgian-preparation`: 2026 — preparatory activities run through the founder's Belgian corporation.
+ * - `greek-operational`: set MANUALLY only after the founder confirms the Greek IKE is incorporated,
+ *   operational and the legal arrangements (contracts, privacy, data) have been reviewed.
+ * The status never changes automatically based on the calendar date.
+ */
+export type LegalStatus = 'belgian-preparation' | 'greek-operational'
+
+export type CompanyConfig = {
+  /** Brand name. Not the registered legal name of either corporation. */
+  name: string
+  legal: {
+    status: LegalStatus
+    /** Founder's Belgian corporation, used for preparatory activities during 2026. */
+    belgianEntity: LegalEntity
+    /** Greek private company (IKE) being established. All null until registration is confirmed. */
+    greekEntity: LegalEntity & { taxNumber: string | null }
+    /** Intended date for the Greek IKE to become operational. Intention only, not a guarantee. */
+    intendedTransitionDate: string
+    /**
+     * Verified entity responsible for website enquiries and applicant data (data controller).
+     * null = not yet confirmed: privacy notices flag this as unresolved instead of guessing.
+     */
+    dataController: string | null
+    /** Contact route for privacy requests. */
+    privacyContact: string | null
+  }
   email: string | null
   phone: string | null
   social: {
@@ -30,10 +59,27 @@ export type CompanyConfig = {
 
 export const company: CompanyConfig = {
   name: 'Relavique',
-  legalName: 'Hatch Europe Consulting',
-  registrationNumber: '1005.878.023',
-  vatNumber: 'BE1005.878.023',
-  registeredAddress: 'Sterstraat 66a, 3920 Lommel, Belgium',
+  legal: {
+    status: 'belgian-preparation',
+    belgianEntity: {
+      name: 'Hatch Europe Consulting',
+      legalForm: null,
+      registrationNumber: '1005.878.023',
+      vatNumber: 'BE1005.878.023',
+      registeredAddress: 'Sterstraat 66a, 3920 Lommel, Belgium',
+    },
+    greekEntity: {
+      name: null,
+      legalForm: 'IKE',
+      registrationNumber: null,
+      vatNumber: null,
+      taxNumber: null,
+      registeredAddress: null,
+    },
+    intendedTransitionDate: '1 January 2027',
+    dataController: null,
+    privacyContact: null,
+  },
   email: null,
   phone: null,
   social: {
@@ -46,9 +92,36 @@ export const company: CompanyConfig = {
   },
 }
 
+/** Entity currently responsible for the website, as configured above. */
+export function currentEntity(): LegalEntity {
+  return company.legal.status === 'greek-operational' ? company.legal.greekEntity : company.legal.belgianEntity
+}
+
+/**
+ * Organisations from the founder's PRIOR professional experience.
+ * Not Relavique clients, partners or endorsers. Always render with the attribution note
+ * (see `ExperienceList`). Text only — never add logos.
+ */
+export const founderExperienceOrganisations = [
+  'Vodafone',
+  'Philips',
+  'Miele',
+  'Stellantis',
+  'ANZ Bank',
+  'ABN AMRO',
+  'Dyson',
+  'Klarna',
+  'Danone',
+  'FrieslandCampina',
+] as const
+
 /**
  * Brand messaging, kept centrally so every language uses the same hierarchy.
- * "Relavique" is never translated. Non-English copy is a draft for native-speaker review.
+ * "Relavique" is never translated.
+ *
+ * OUTDATED: the non-English entries (nl, nb, sv, da, fi) predate the October 2026 repositioning
+ * (specialist / second-line focus; Dutch, German, Norwegian and English delivery). They are not
+ * published and must be re-translated from `en` before any locale is enabled.
  */
 export type BrandMessaging = {
   descriptor: string
@@ -64,17 +137,17 @@ export type BrandMessaging = {
 
 export const brandMessaging: Record<Locale, BrandMessaging> = {
   en: {
-    descriptor: 'Boutique Customer Operations',
+    descriptor: 'Specialist Customer Operations',
     tagline: 'Your customers. Our people. One team.',
-    secondaryLine: 'Small teams. Deep expertise. Customer care that feels in-house.',
-    heroHeadline: 'Dedicated customer-care teams that feel like your own.',
+    secondaryLine: 'Specialist teams for the cases that need more than a scripted answer.',
+    heroHeadline: 'Specialist support teams that feel like your own.',
     heroCopy:
-      'We build and manage small, specialist customer-care teams in Greece for Dutch-speaking and Nordic markets. We recruit, train and manage your team around your customers, processes and brand.',
+      'Dedicated teams of 3–10 people for second-line support, dealer networks and B2B customer operations. We combine hands-on experience with close account ownership, supporting your business in Dutch, German, Norwegian and English.',
     primaryCta: 'Discuss your team',
-    secondaryCta: 'See how it works',
-    finalCtaBody: 'Let’s design the right customer-care team for your business.',
+    secondaryCta: 'Explore our expertise',
+    finalCtaBody: 'Let’s design the right specialist support team for your business.',
     metaDescription:
-      'Dedicated customer-care teams of 3–10 people, based in Greece and built around your business. Boutique customer operations for Dutch-speaking and Nordic markets.',
+      'Dedicated teams for second-line support, dealer networks and B2B customer operations in Dutch, German, Norwegian and English.',
   },
   nl: {
     descriptor: 'Boutique klantenservice-operaties',
@@ -155,7 +228,6 @@ export function getFounderBio(locale: Locale): string | null {
 }
 
 export function hasLegalDetails(): boolean {
-  return Boolean(
-    company.legalName || company.registrationNumber || company.vatNumber || company.registeredAddress,
-  )
+  const e = currentEntity()
+  return Boolean(e.name || e.registrationNumber || e.vatNumber || e.registeredAddress)
 }

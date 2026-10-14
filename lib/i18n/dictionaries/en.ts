@@ -1,7 +1,6 @@
 /**
- * English source dictionary. This file defines the shape every other language must match
- * (TypeScript will flag missing or misspelt keys in nl/nb/sv/da/fi).
- * Translations are drafts for native-speaker review; they have not been professionally reviewed.
+ * English source dictionary (British English). This file defines the shape every other language
+ * must match before it can be registered in get-dictionary.ts.
  * Brand messaging (descriptor, taglines, hero, CTAs) comes from lib/config/company.ts.
  */
 import { brandMessaging, company } from '@/lib/config/company'
@@ -13,44 +12,44 @@ export const en = {
 
   /** Closing call to action on inner pages; the homepage closes with the brand tagline instead. */
   closingCta: {
-    title: 'Let’s design the right team for your business.',
-    body: 'Tell us about your customers, languages and coverage needs. We will come back to you to discuss what a dedicated team could look like.',
+    title: 'Let’s design the right specialist team for your business.',
+    body: 'Tell us about your cases, customers, partners and languages. We will come back to you to discuss what a dedicated team could look like.',
   },
 
   meta: {
     siteDescription: brand.metaDescription,
     home: {
-      title: `${company.name} | ${brand.descriptor}`,
+      title: `${company.name} | Specialist Support & Customer Operations`,
       description: brand.metaDescription,
     },
     services: {
       title: 'Services',
       description:
-        'Dedicated customer care, specialist support teams and customer operations, delivered by small managed teams in Greece.',
+        'Specialist and second-line support, dealer and partner support, B2B customer operations, and complementary customer care and back-office support.',
     },
     howItWorks: {
       title: 'How it works',
       description:
-        'From discovery and team design to recruitment, training, a controlled launch and continuous improvement — how we set up and run your dedicated team.',
+        'From discovery and responsibility design to recruitment, knowledge transfer, a controlled launch and ongoing improvement — how we set up a specialist support team.',
     },
     markets: {
       title: 'Markets & languages',
       description:
-        'Our focus on the Netherlands, Dutch-speaking Belgium, Norway, Sweden, Denmark and Finland, and how delivery languages are confirmed for each project.',
+        'Specialist support in Dutch, German, Norwegian and English, with German-language delivery tailored to Germany, Switzerland and Austria.',
     },
     about: {
       title: `About ${company.name}`,
-      description: `${company.name} is a Greece-based boutique customer-operations partner focused on small, dedicated teams for Dutch-speaking and Nordic markets.`,
+      description: `${company.name} builds small, dedicated specialist support teams, shaped by years of hands-on Customer Experience consulting and operational experience.`,
     },
     careers: {
       title: 'Careers',
       description:
-        'Greece-based remote customer-care roles supporting Dutch-speaking and Nordic customers. Register your interest for future openings.',
+        'Specialist customer-operations roles in Dutch, German, Norwegian and English, depending on client projects. Register your interest for future openings.',
     },
     contact: {
       title: 'Discuss your team',
       description:
-        'Tell us about your customers, languages and coverage needs, and we will discuss what a dedicated team could look like for you.',
+        'Tell us about your cases, customers and language requirements, and we will discuss what a dedicated specialist team could look like for you.',
     },
     notFound: {
       title: 'Page not found',
@@ -61,7 +60,8 @@ export const en = {
   common: {
     skipToContent: 'Skip to main content',
     discussYourTeam: brand.primaryCta,
-    seeHowItWorks: brand.secondaryCta,
+    exploreExpertise: brand.secondaryCta,
+    seeHowItWorks: 'See how it works',
     homeLabel: `${company.name} — home`,
     learnMore: 'Learn more',
     viewService: 'View service',
@@ -86,7 +86,10 @@ export const en = {
   },
 
   footer: {
-    proposition: 'Dedicated customer-care teams of 3–10 people, based in Greece, for Dutch-speaking and Nordic markets.',
+    proposition:
+      'Small, dedicated specialist support teams for second-line support, dealer networks and B2B customer operations — in Dutch, German, Norwegian and English.',
+    statusNote: `${company.name} is a brand in preparation.`,
+    statusLink: 'Company status',
     pagesHeading: 'Company',
     servicesHeading: 'Services',
     legalHeading: 'Legal',
@@ -113,155 +116,140 @@ export const en = {
     athensStreet: 'People walking along a street in Athens on a sunny day',
   },
 
+  /** Founder-experience presentation. The organisation names live in lib/config/company.ts. */
+  experience: {
+    listHeading: 'Prior professional experience includes work for',
+    attribution:
+      'These references relate to the founder’s prior professional experience, not to client relationships with Relavique. No endorsement is implied.',
+  },
+
   home: {
     hero: {
       eyebrow: brand.tagline,
       title: brand.heroHeadline,
       intro: brand.heroCopy,
+      shortLine: 'German-language support tailored to Germany, Switzerland and Austria. Other languages assessed on request.',
     },
     strip: {
       label: 'What we offer',
       items: [
-        'Teams of 3–10 people',
-        'Greece-based delivery',
-        'Dedicated account ownership',
-        'Dutch-speaking and Nordic market focus',
+        'Dedicated teams of 3–10',
+        'Specialist case ownership',
+        'Dealer and B2B support',
+        'Greece-based delivery model',
       ],
     },
-    why: {
-      eyebrow: 'Why a boutique team?',
-      title: 'A team sized around your business — not the other way round.',
+    resolution: {
+      eyebrow: brand.secondaryLine,
+      title: 'Beyond first contact. Focused on resolution.',
       intro:
-        'Large contact centres are built for scale. Many businesses need something different: a small group of people who know their customers, their products and their tone of voice.',
+        'Some cases need more than an answer. They need investigation, follow-through and someone who understands how your business works. Relavique builds small, dedicated teams around those responsibilities.',
       points: [
         {
-          title: 'Personal accountability',
-          body: 'You work with one accountable delivery contact who knows your account, your team and your priorities — not a rotating ticket queue.',
+          title: 'Specialist, not generic',
+          body: 'Your team works on your account only, building product, process and partner knowledge that stays with your cases.',
         },
         {
-          title: 'Specialist knowledge',
-          body: 'Your agents focus on your business only. Product knowledge, procedures and context build up in the team instead of being spread across many clients.',
+          title: 'Accountable, not transactional',
+          body: 'Cases are owned through to resolution or an agreed handover, with a named delivery contact responsible for the team.',
         },
         {
-          title: 'Sized to fit',
-          body: 'We design teams of roughly 3–10 people around your volumes, channels and hours, and adjust the set-up as your needs change.',
+          title: 'Closely integrated',
+          body: 'We work in your systems and alongside your experts, internal departments and any existing support providers.',
+        },
+        {
+          title: 'Case ownership over contact handling',
+          body: 'Success is measured by cases resolved and followed up properly, not only by contacts answered.',
         },
       ],
     },
     services: {
-      eyebrow: 'Services',
-      title: 'Three ways a dedicated team can support you',
+      eyebrow: 'Our expertise',
+      title: 'Specialist support where it matters most',
       intro:
-        'Each engagement is scoped individually. Channels, coverage and responsibilities are agreed with you before the team starts.',
+        'Our focus is work that needs deeper product and process knowledge, sound judgement and coordination. Each engagement is scoped individually before the team starts.',
     },
-    clients: {
-      eyebrow: 'Who we work with',
-      title: 'Built for two kinds of clients',
-      items: [
+    layer: {
+      eyebrow: 'How we fit in',
+      title: 'A specialist layer within your support operation',
+      intro:
+        'We are designed to work with your organisation, not to replace it. Most engagements follow one of three models.',
+      models: [
         {
-          title: 'SMEs looking for an outsourced customer-care department',
-          body: 'You want customer care handled professionally without building a department yourself.',
-          points: [
-            'A complete small team instead of individual hires',
-            'Recruitment, supervision and coaching handled for you',
-            'A single delivery contact for day-to-day questions',
-          ],
+          title: 'Complement your first-line team',
+          body: 'We take the cases your first line — in-house or with an existing provider — escalates for investigation and follow-up.',
         },
         {
-          title: 'Multinationals needing a focused specialist team',
-          body: 'You need a dedicated team for a specific market, product line or process, working alongside your own organisation.',
-          points: [
-            'A team focused on one clearly defined scope',
-            'Works within your systems, policies and approval rules',
-            'Clear reporting into your existing governance',
-          ],
+          title: 'Own a defined queue or process',
+          body: 'We take responsibility for a clearly scoped specialist queue, workflow or escalation route, with agreed boundaries.',
+        },
+        {
+          title: 'Build a dedicated team',
+          body: 'We set up a small, dedicated team for a specific market, product line or partner network.',
         },
       ],
+      note: 'In every model, your internal departments and existing providers stay part of the picture. Handover points and escalation routes are agreed with everyone involved.',
+    },
+    experience: {
+      eyebrow: 'Experience behind the approach',
+      title: 'Specialist delivery, shaped by experience.',
+      intro:
+        'The experience behind Relavique spans Customer Experience consulting and operations for major organisations across telecommunications, consumer products, automotive, banking, payments and food.',
+      cta: 'More about our foundation',
     },
     dedicated: {
       eyebrow: 'Dedicated to you, supported by us',
-      title: 'Your own team, backed by shared operational support',
+      title: 'Your own team, backed by shared delivery support',
       intro:
-        'The people who speak to your customers work only for you. Behind them, shared processes keep the team staffed, trained and accountable.',
+        'The people who handle your cases work only for you. Behind them, shared functions keep the team staffed, trained and accountable.',
       dedicatedHeading: 'Dedicated to your business',
-      dedicatedItems: [
-        'Agents who work on your account only',
-        'Client-specific knowledge base and procedures',
-        'Familiarity with your products, customers and tone of voice',
-        'A named delivery contact for your account',
-      ],
+      dedicatedItems: ['Account-specific knowledge', 'Defined responsibilities', 'Dedicated agents'],
       sharedHeading: 'Supported by our shared functions',
       sharedItems: [
-        'Recruitment and language assessment',
-        'Quality monitoring and coaching',
-        'Delivery management and reporting',
-        'IT set-up and access administration',
+        'Shared recruitment, coaching and delivery support',
+        'Clear escalation routes',
+        'Agreed reporting',
       ],
     },
     process: {
       eyebrow: 'How it works',
       title: 'A clear path from first conversation to a running team',
       steps: [
-        { title: 'Discovery', body: 'We learn about your customers, contact types, systems and goals.' },
-        { title: 'Team design', body: 'We propose team size, languages, channels and coverage.' },
+        { title: 'Discovery', body: 'We learn how your cases, customers and partners work, and where specialist support is needed.' },
+        { title: 'Team design', body: 'We define team size, languages, responsibilities and escalation routes.' },
         {
           title: 'Recruitment and training',
-          body: 'We recruit for the role, assess language skills and train with your materials.',
+          body: 'We recruit and assess for the role, then train with your materials and experts.',
         },
-        { title: 'Launch', body: 'A controlled go-live with agreed escalation routes and close monitoring.' },
-        {
-          title: 'Continuous improvement',
-          body: 'Regular reporting, coaching and reviews to keep improving quality.',
-        },
+        { title: 'Controlled launch', body: 'The team goes live against agreed readiness criteria, with close monitoring.' },
+        { title: 'Ongoing improvement', body: 'Reporting, case reviews and coaching refine delivery over time.' },
       ],
       cta: 'Read the full process',
     },
     markets: {
       eyebrow: 'Markets and languages',
-      title: 'Focused on Dutch-speaking and Nordic markets',
-      body: 'We concentrate on a small number of markets so we can understand their customers and expectations properly.',
-      dutchTitle: 'Dutch-speaking markets',
-      dutchBody: 'Customer care for the Netherlands and Dutch-speaking Belgium (Flanders).',
-      nordicTitle: 'Selected Nordic opportunities',
-      nordicBody:
-        'Norwegian, Swedish, Danish and Finnish customer care, considered project by project.',
-      note: 'Delivery languages, staffing and start dates are confirmed during scoping, based on recruitment and availability.',
+      title: 'Dutch, German, Norwegian and English',
+      body: 'Greece-based specialist support teams for Dutch-, German-, Norwegian- and English-speaking customers, with German-language delivery tailored to Germany, Switzerland and Austria.',
+      items: [
+        { title: 'Dutch', body: 'For the Netherlands and Dutch-speaking Belgium.' },
+        { title: 'German', body: 'For customers in Germany, Switzerland and Austria, with attention to local terminology and conventions.' },
+        { title: 'Norwegian', body: 'For customers and partners in Norway.' },
+        { title: 'English', body: 'For international customers, partners and English-language operations.' },
+      ],
+      note: 'Need another language? We assess additional language requirements against the role, recruitment availability and scope of your project.',
       cta: 'Markets & languages',
     },
     greece: {
       eyebrow: 'Delivery from Greece',
       title: 'A Greece-based, remote-first delivery model',
       paragraphs: [
-        'Our teams are based in Greece and are set up to work remotely, with structured supervision, regular coaching and clear routines for communication.',
-        'Greece offers access to multilingual professionals, including people with Dutch or Nordic language skills, and a time zone that overlaps well with Northern European working hours.',
+        'Relavique’s teams are planned to be based in Greece and set up for remote-first working, with structured supervision, regular coaching and clear communication routines.',
+        'Greece offers access to multilingual professionals and a time zone that overlaps well with working hours in the Netherlands, Germany, Switzerland, Austria and Norway. Language availability is assessed for each role.',
       ],
       points: [
         'Remote working with defined supervision and check-ins',
         'Working hours aligned with your customers’ time zone',
         'Equipment, access and working practices agreed per account',
-      ],
-    },
-    clarity: {
-      eyebrow: 'What you can expect',
-      title: 'Operational clarity from day one',
-      intro: 'Instead of promises, we agree specifics with you in writing before the team goes live.',
-      items: [
-        {
-          title: 'Agreed scope',
-          body: 'A written description of contact types, channels, hours and what the team may and may not decide.',
-        },
-        {
-          title: 'Escalation ownership',
-          body: 'Named owners on both sides for escalations, exceptions and decisions outside the team’s authority.',
-        },
-        {
-          title: 'Performance reporting',
-          body: 'Reporting on the measures we agree together, reviewed with you on a fixed rhythm.',
-        },
-        {
-          title: 'Controlled system access',
-          body: 'Access to your systems only as needed for the role, granted and removed through an agreed process.',
-        },
       ],
     },
     faq: {
@@ -270,39 +258,47 @@ export const en = {
       items: [
         {
           q: 'What size team can you provide?',
-          a: 'We focus on teams of approximately 3–10 full-time people. If you need more, we can discuss it, but our model is built around small, dedicated teams.',
+          a: 'Our model is built around small, dedicated teams of approximately 3–10 people. The right size depends on your case volumes, complexity, languages and coverage, and is agreed during scoping.',
         },
         {
-          q: 'Are the agents dedicated to our business?',
-          a: 'Yes. Agents in a dedicated team work on your account. Shared functions such as recruitment, quality and IT support several teams, but the people handling your customers do not.',
+          q: 'Can you work alongside our existing BPO or first-line team?',
+          a: 'Yes. Many engagements are designed to complement an existing first line, whether in-house or with another provider. We agree escalation criteria, handover points and communication routes with everyone involved before launch.',
+        },
+        {
+          q: 'What do you mean by second-line support?',
+          a: 'Support for cases that require deeper investigation, product or process knowledge, and coordination beyond the first point of contact. The technical depth and the decisions the team may take are agreed per engagement; it does not include engineering, software development or regulated advice.',
+        },
+        {
+          q: 'Can you support our dealer or partner network?',
+          a: 'Yes, within an agreed scope. A team can handle partner enquiries about orders, availability and processes, coordinate cases with your departments and follow up open issues. Warranty, financial, contractual and other commercial decisions stay with you unless explicitly agreed otherwise.',
+        },
+        {
+          q: 'Can you handle B2B customer operations?',
+          a: 'Yes. A team can handle business-customer enquiries, account and service administration, order and case follow-up, and coordination with sales, logistics and service functions, following your processes and approval limits.',
         },
         {
           q: 'Can you work in our existing systems?',
-          a: 'In most cases, yes. We prefer to work in your helpdesk, CRM or order systems so that you keep full visibility. Access requirements are agreed during scoping.',
+          a: 'In most cases, yes. We prefer to work in your CRM, helpdesk or order systems so that you keep full visibility. Access requirements and how access is granted and removed are agreed during scoping.',
         },
         {
-          q: 'Which languages can you support?',
-          a: 'Our focus is Dutch and the Nordic languages, alongside English. Whether a language can be staffed for your project is confirmed during scoping, after we have assessed recruitment and availability.',
+          q: 'How are responsibilities and escalation routes agreed?',
+          a: 'In writing, before launch. We document what the team owns, which decisions remain with your experts, approval limits, escalation routes and handover criteria, and review them as the engagement develops.',
+        },
+        {
+          q: 'Can you adapt German-language support for Switzerland or Austria?',
+          a: 'We tailor German-language delivery to local terminology, communication conventions and market expectations, subject to role-specific recruitment and assessment. We do not offer Swiss German dialect support as standard.',
+        },
+        {
+          q: 'Can you assess other languages?',
+          a: 'Yes. We assess additional language requirements against the role, recruitment availability and scope of your project. Availability is confirmed before we commit.',
         },
         {
           q: 'How are working hours and coverage agreed?',
-          a: 'Together with you, based on your contact volumes and customer expectations. Opening hours, holiday cover and any extended hours are defined before launch and reflected in the proposal.',
-        },
-        {
-          q: 'How does onboarding work?',
-          a: 'After recruitment, the team is trained on your products, processes and systems using your materials and input from your experts. Launch follows once training and system access are in place.',
-        },
-        {
-          q: 'How do you approach quality and reporting?',
-          a: 'We agree quality criteria and reporting measures with you, monitor interactions, coach agents regularly and review results with you on a fixed schedule.',
-        },
-        {
-          q: 'Can the team grow over time?',
-          a: 'Yes. Teams can be adjusted as volumes or scope change. Additions depend on recruitment and training, so we plan changes with you in advance.',
+          a: 'Together with you, based on your case volumes and customer expectations. Opening hours, holiday cover and any extended hours are defined before launch. Coverage outside standard business hours, including 24/7, is not included by default.',
         },
         {
           q: 'How is pricing structured?',
-          a: 'We price each engagement as a scoped, managed team. Team size, languages, complexity and coverage all affect the quote. We share a proposal after discovery rather than publishing a standard price list.',
+          a: 'We price each engagement as a scoped, managed team. Team size, languages, complexity and coverage all affect the proposal, which we share after discovery rather than publishing a standard price list.',
         },
       ],
     },
@@ -315,64 +311,222 @@ export const en = {
   servicesPage: {
     hero: {
       eyebrow: 'Services',
-      title: 'Managed teams for customer care and customer operations',
+      title: 'Specialist support and customer operations, owned end to end',
       intro:
-        'Every engagement is built around one dedicated team. Choose the focus that matches your needs — or combine them within a single, clearly scoped team.',
+        'Our focus is specialist and second-line support, dealer and partner support and B2B customer operations. Customer care and back-office support are available alongside them.',
     },
     approach: {
       title: 'What every engagement includes',
       points: [
         'A dedicated team working on your account only',
+        'Documented responsibilities, approval limits and escalation routes',
         'Recruitment, employment administration and supervision',
-        'Training based on your products and processes',
-        'Quality coaching and agreed performance reporting',
+        'Training based on your products, processes and example cases',
+        'Quality coaching and agreed reporting',
         'A named delivery contact',
       ],
     },
     scopeNote:
-      'We do not provide regulated advice, advanced technical engineering support or 24/7 coverage as standard. Extended hours can be discussed during scoping.',
+      'We do not provide regulated advice, software development, advanced engineering or 24/7 coverage as standard. Technical depth and working hours are agreed during scoping.',
   },
 
   services: {
     labels: {
-      useCases: 'Typical use cases',
-      handles: 'What the team can handle',
+      problem: 'The challenge',
+      scope: 'Typical scope',
       responsibilities: 'Responsibilities and boundaries',
       weHandle: 'Our team handles',
       clientRetains: 'You retain',
+      boundaries: 'Agreed before launch',
+      onboarding: 'How onboarding works',
+      onboardingLink: 'Read the full process',
+      experienceNote:
+        'Our approach draws on practical Customer Experience consulting and operations experience: clear ownership, documented processes and effective escalation.',
       quality: 'Quality and reporting',
       related: 'Related services',
     },
     items: {
-      'dedicated-customer-care': {
-        name: 'Dedicated customer care',
+      'specialist-support-teams': {
+        name: 'Specialist & second-line support',
         summary:
-          'A dedicated team handling your customer contacts by email, phone and chat — in your tone of voice and within your processes.',
+          'Support for cases that require deeper investigation, product or process knowledge, and coordination beyond the first point of contact.',
         meta: {
-          title: 'Dedicated customer care',
+          title: 'Specialist & second-line support',
           description:
-            'A dedicated customer-care team in Greece handling email, tickets, phone and chat for Dutch-speaking and Nordic customers.',
+            'A dedicated second-line team for escalated cases, product and process investigations and complex complaint follow-up, owned through to resolution.',
         },
-        eyebrow: 'Service',
-        title: 'Dedicated customer care, run as an extension of your business',
+        eyebrow: 'Specialist & second-line support',
+        title: 'Specialist teams for the cases that need more than a scripted answer',
         intro:
-          'A small, dedicated team that handles your everyday customer contacts. We recruit and manage the team; you decide how your customers should be served.',
-        useCases: [
-          'E-commerce and retail businesses handling order and delivery questions',
-          'Travel, booking and subscription services with recurring customer enquiries',
-          'Growing businesses replacing ad-hoc support with a structured team',
-          'Companies entering a Dutch-speaking or Nordic market',
+          'A small, dedicated team that takes ownership of cases escalated beyond first contact — investigating, coordinating with your experts and following through to resolution or an agreed handover.',
+        problem:
+          'When complex cases bounce between first-line agents and busy internal experts, customers wait and nobody clearly owns the outcome. A dedicated specialist layer gives those cases a home.',
+        scope: [
+          'Cases escalated beyond first contact',
+          'Product and process enquiries requiring investigation',
+          'Complex complaint follow-up',
+          'Coordination with your experts and internal departments',
+          'Case documentation and progress updates',
+          'Ownership through resolution or an agreed handover',
         ],
-        handles: [
-          { title: 'Email and ticket support', body: 'Responding to and resolving customer emails and tickets in your helpdesk.' },
-          { title: 'Phone support', body: 'Inbound calls during agreed hours, with clear routing and call notes.' },
-          { title: 'Live chat', body: 'Real-time chat support on your website or app during agreed hours.' },
-          { title: 'Order and booking enquiries', body: 'Status questions, changes and cancellations within your rules.' },
-          { title: 'Customer follow-up', body: 'Proactive follow-up on open cases, callbacks and satisfaction checks.' },
-        ],
-        channelsNote: 'Channels and coverage are agreed per account.',
         weHandle: [
-          'Handling contacts within the agreed scope',
+          'Investigating cases within the agreed scope',
+          'Gathering complete information before involving your experts',
+          'Keeping customers and colleagues updated on progress',
+          'Documenting cases and keeping knowledge articles current',
+        ],
+        clientRetains: [
+          'Decisions outside the agreed scope',
+          'Technical expertise beyond the agreed depth',
+          'Commercial terms, credits and exceptions',
+          'Final outcomes on complaints and disputes',
+        ],
+        boundaries: [
+          'Technical depth is agreed per engagement.',
+          'Approval limits are documented.',
+          'Your experts retain decisions outside the agreed scope.',
+          'Escalation and handover criteria are defined before launch.',
+        ],
+        onboarding:
+          'We map the case types, knowledge and decisions involved, then build training from your documentation, example cases and sessions with your experts. The team starts with clearly defined case types before taking on more.',
+        quality: {
+          body: 'Specialist work needs specific measures. We agree them with you and review them together.',
+          points: [
+            'Accuracy and completeness of case investigation',
+            'Correct use of escalation and handover routes',
+            'Agreed response and follow-up times',
+            'Regular calibration sessions with your experts',
+          ],
+        },
+      },
+      'dealer-partner-support': {
+        name: 'Dealer & partner support',
+        summary:
+          'A dedicated point of contact for dealer, distributor and partner networks, coordinating cases between partners and your departments.',
+        meta: {
+          title: 'Dealer & partner support',
+          description:
+            'Dedicated support for dealer, distributor and partner networks: order and availability enquiries, case coordination and follow-up on outstanding issues.',
+        },
+        eyebrow: 'Dealer & partner support',
+        title: 'Reliable support for the partners who represent your business',
+        intro:
+          'Dealers, distributors and partners need quick, accurate answers and someone who follows up. We build a small team that knows your network, your processes and the people involved.',
+        problem:
+          'Partner questions often cut across sales, logistics and service. Without a clear owner, issues stay open and partners end up chasing several departments for one answer.',
+        scope: [
+          'Support for dealer, distributor and partner networks',
+          'Enquiries about orders, availability and operational processes',
+          'Case coordination between partners and your departments',
+          'Follow-up on outstanding issues',
+          'Partner communication and accurate records',
+        ],
+        weHandle: [
+          'Answering partner enquiries within documented procedures',
+          'Coordinating cases with the right internal departments',
+          'Following up until issues are resolved or handed over',
+          'Keeping partner records and case notes accurate',
+        ],
+        clientRetains: [
+          'Warranty decisions',
+          'Financial and contractual decisions',
+          'Commercial terms and partner agreements',
+          'Decisions outside the agreed authority',
+        ],
+        boundaries: [
+          'The team has no authority to approve warranty, financial, contractual or other commercial decisions unless explicitly agreed.',
+          'Approval limits and escalation owners are documented.',
+          'Partner communication follows your agreed guidelines.',
+        ],
+        onboarding:
+          'We learn your partner structure, ordering and service processes and the departments involved, then train the team using your procedures and real partner scenarios before a controlled start.',
+        quality: {
+          body: 'Partner support depends on accuracy and follow-through. We agree measures with you and review them together.',
+          points: [
+            'Accuracy of information given to partners',
+            'Timely follow-up on open issues',
+            'Completeness of partner records',
+            'Regular reviews with your partner or channel managers',
+          ],
+        },
+      },
+      'b2b-customer-operations': {
+        name: 'B2B customer operations',
+        summary:
+          'Business-customer enquiries, account administration and order follow-up, coordinated across your sales, logistics and service functions.',
+        meta: {
+          title: 'B2B customer operations',
+          description:
+            'Dedicated B2B customer-operations teams for business-customer enquiries, account and service administration, order and case follow-up and CRM accuracy.',
+        },
+        eyebrow: 'B2B customer operations',
+        title: 'Customer operations for business customers, handled with care',
+        intro:
+          'Business customers expect continuity, accuracy and someone who understands their account. Our team takes on B2B customer operations using your workflows and approval limits.',
+        problem:
+          'B2B accounts involve many steps and stakeholders. When administration and follow-up are spread thinly, orders stall, records drift and business customers lose confidence.',
+        scope: [
+          'Business-customer enquiries',
+          'Account and service administration',
+          'Order and case follow-up',
+          'Coordination across sales, logistics and service functions',
+          'CRM accuracy and workflow management',
+          'Defined escalation handling',
+        ],
+        weHandle: [
+          'Handling enquiries and tasks within documented permissions',
+          'Following orders and cases through to completion',
+          'Keeping CRM and account data accurate',
+          'Escalating exceptions to your named owners',
+        ],
+        clientRetains: [
+          'Pricing, contracts and commercial decisions',
+          'Approvals above the agreed limits',
+          'Business rules and policy decisions',
+          'Final ownership of the customer relationship',
+        ],
+        boundaries: [
+          'Permissions and approval limits are documented per task.',
+          'Escalation owners are named on both sides.',
+          'Changes to scope are agreed in writing.',
+        ],
+        onboarding:
+          'We map your account types, workflows and the functions involved, then train the team in your systems with documented procedures and example cases before a controlled start.',
+        quality: {
+          body: 'For B2B operations, accuracy and timeliness matter most. We agree measures and checks with you before we start.',
+          points: [
+            'Accuracy checks on a sample of completed work',
+            'Agreed turnaround times per task type',
+            'Open-case and backlog reporting',
+            'Regular process reviews with your team',
+          ],
+        },
+      },
+      'customer-care-back-office': {
+        name: 'Customer care & back-office support',
+        summary:
+          'Complementary customer care and back-office capability — email, phone, tickets and chat, case administration and CRM updates.',
+        meta: {
+          title: 'Customer care & back-office support',
+          description:
+            'Complementary customer care and back-office support: email, phone, tickets and chat, order and booking enquiries, case administration, CRM updates and ticket triage.',
+        },
+        eyebrow: 'Customer care & back-office support',
+        title: 'Customer care and back-office support alongside specialist work',
+        intro:
+          'Specialist teams often work best with reliable everyday support around them. Where it fits your set-up, the same team model can handle customer contacts and back-office tasks.',
+        problem:
+          'Routine contacts and administration still need to be accurate and on time. Handling them alongside specialist work keeps knowledge in one team and avoids unnecessary handovers.',
+        scope: [
+          'Email, phone, tickets and chat',
+          'Order and booking enquiries',
+          'Case administration',
+          'CRM updates',
+          'Ticket triage',
+          'Workflow follow-up',
+        ],
+        weHandle: [
+          'Handling contacts and tasks within the agreed scope',
           'Day-to-day supervision and scheduling',
           'Documenting cases in your systems',
           'Escalating exceptions to your named owners',
@@ -380,9 +534,16 @@ export const en = {
         clientRetains: [
           'Customer policies, refunds and goodwill rules',
           'Decisions outside the agreed authority',
-          'Product, pricing and service changes',
-          'Final ownership of the customer relationship',
+          'Granting and removing system access',
+          'Final responsibility for financial transactions',
         ],
+        boundaries: [
+          'Channels and coverage are agreed per account.',
+          'Permissions and approval limits are documented.',
+          'Escalation routes are defined before launch.',
+        ],
+        onboarding:
+          'We train the team on your products, processes and systems using your materials and input from your experts. Launch follows once training and system access are in place.',
         quality: {
           body: 'Before launch we agree what good looks like for your customers. We then monitor, coach and report against those measures.',
           points: [
@@ -393,150 +554,89 @@ export const en = {
           ],
         },
       },
-      'specialist-support-teams': {
-        name: 'Specialist support teams',
-        summary:
-          'A focused team for B2B, dealer and partner support, complaints or product-specific first-line support.',
-        meta: {
-          title: 'Specialist support teams',
-          description:
-            'Focused specialist support teams for B2B customers, dealers and partners, complaints handling and product-specific first-line support.',
-        },
-        eyebrow: 'Service',
-        title: 'Specialist support teams with a clearly defined remit',
-        intro:
-          'Some support requires deeper product or process knowledge. We build a focused team that learns your specific domain, while your experts keep the decisions that belong with them.',
-        useCases: [
-          'Supporting dealers, resellers or partners with orders and product questions',
-          'B2B customer service for business accounts',
-          'Complaints handling with structured escalation',
-          'First-line support for a specific product or product line',
-        ],
-        handles: [
-          { title: 'Dealer and partner support', body: 'Answering partner questions on orders, availability, documentation and procedures.' },
-          { title: 'B2B customer service', body: 'Account-based support for business customers, following your service agreements.' },
-          { title: 'Complaints and escalation handling', body: 'Registering, investigating and following up complaints within agreed steps.' },
-          { title: 'Product-specific first-line support', body: 'Structured first-line troubleshooting based on your documentation, with clear hand-over.' },
-        ],
-        channelsNote: 'Channels, coverage and the limits of the team’s authority are agreed per account.',
-        weHandle: [
-          'First-line handling within documented procedures',
-          'Gathering complete information before escalation',
-          'Following up until cases are closed or handed over',
-          'Keeping knowledge articles and notes up to date',
-        ],
-        clientRetains: [
-          'Technical decisions and second-line expertise',
-          'Commercial terms, credits and exceptions',
-          'Decisions outside the agreed authority',
-          'Final outcomes on complaints and disputes',
-        ],
-        quality: {
-          body: 'Specialist work needs specific measures. We agree them with you and review them together.',
-          points: [
-            'Accuracy and completeness of case handling',
-            'Correct use of escalation routes',
-            'Agreed response and follow-up times',
-            'Regular calibration sessions with your experts',
-          ],
-        },
-      },
-      'customer-operations': {
-        name: 'Customer operations & back office',
-        summary:
-          'Case administration, CRM updates, order processing and ticket triage, using documented permissions and approval limits.',
-        meta: {
-          title: 'Customer operations & back office',
-          description:
-            'Back-office support for customer operations: case administration, CRM updates, order processing, ticket triage and workflow follow-up.',
-        },
-        eyebrow: 'Service',
-        title: 'Customer operations and back office, handled with care',
-        intro:
-          'Behind every customer conversation is administration that needs to be accurate and on time. Our team takes on those tasks using your workflows, with documented permissions and approval limits.',
-        useCases: [
-          'Clearing case and order backlogs in a structured way',
-          'Keeping CRM and customer records accurate and complete',
-          'Triage of incoming tickets so specialists can focus',
-          'Following up workflows that would otherwise stall',
-        ],
-        handles: [
-          { title: 'Case administration', body: 'Creating, updating and closing cases according to your procedures.' },
-          { title: 'CRM updates', body: 'Maintaining customer, contact and account data in your CRM.' },
-          { title: 'Order processing', body: 'Entering, checking and amending orders within agreed limits.' },
-          { title: 'Ticket triage', body: 'Categorising, prioritising and routing incoming tickets to the right owner.' },
-          { title: 'Workflow follow-up', body: 'Chasing open steps, reminders and hand-overs until work is completed.' },
-        ],
-        channelsNote: 'Permissions and approval limits are documented and agreed per account.',
-        weHandle: [
-          'Executing tasks within documented permissions',
-          'Checking data quality and completeness',
-          'Flagging exceptions and anomalies',
-          'Keeping an audit-friendly record of work done',
-        ],
-        clientRetains: [
-          'Approvals above the agreed limits',
-          'Business rules and policy decisions',
-          'Granting and removing system access',
-          'Final responsibility for financial transactions',
-        ],
-        quality: {
-          body: 'For operational work, accuracy and timeliness matter most. We agree measures and checks with you before we start.',
-          points: [
-            'Accuracy checks on a sample of completed tasks',
-            'Agreed turnaround times per task type',
-            'Backlog and volume reporting',
-            'Regular process reviews with your team',
-          ],
-        },
-      },
     },
   },
 
   howItWorks: {
     hero: {
       eyebrow: 'How it works',
-      title: 'How we set up and run your dedicated team',
+      title: 'How we set up and run your specialist team',
       intro:
         'A structured, transparent process. You know what happens at each stage, who is responsible and what needs to be in place before your team goes live.',
     },
     steps: [
       {
         title: 'Discovery and scope',
-        body: 'We learn about your customers, contact types, volumes, systems and goals, and agree what the team should — and should not — handle.',
+        body: 'We learn how your cases, customers and partners work, and agree what the team should — and should not — handle.',
+        pointsLabel: 'We define',
+        points: [
+          'Case complexity',
+          'First-line versus second-line responsibilities',
+          'Languages and market requirements',
+          'Dealer, partner or business-customer relationships',
+          'Channels, volumes and working hours',
+        ],
       },
       {
-        title: 'Team and coverage design',
-        body: 'We propose a team size, language mix, channels and working hours that fit your volumes, including holiday cover.',
+        title: 'Team and responsibility design',
+        body: 'We design the team around the knowledge and decisions the work requires.',
+        pointsLabel: 'We define',
+        points: [
+          'Required product and process knowledge',
+          'Decision-making authority',
+          'Your experts’ responsibilities',
+          'Escalation routes',
+          'Ownership and handover criteria',
+          'Reporting and quality expectations',
+        ],
       },
       {
-        title: 'Recruitment and language assessment',
-        body: 'We recruit for your specific role and assess language proficiency and customer-service skills for the level the role requires.',
+        title: 'Recruitment and assessment',
+        body: 'We recruit for your specific role and assess candidates against what it requires.',
+        pointsLabel: 'We assess',
+        points: [
+          'Language proficiency',
+          'Communication skills',
+          'Relevant experience',
+          'Ability to investigate, document and coordinate cases',
+        ],
       },
       {
         title: 'Knowledge transfer and training',
         body: 'Your experts share products, processes and policies. We turn this into training and a client-specific knowledge base.',
+        pointsLabel: 'We build',
+        points: [
+          'Account-specific knowledge',
+          'Documented procedures',
+          'Example cases',
+          'Escalation guidance',
+          'Clear approval boundaries',
+        ],
       },
       {
         title: 'Controlled launch',
-        body: 'The team goes live in a controlled way — for example on selected channels or volumes first — with close monitoring and quick feedback loops.',
+        body: 'We agree readiness criteria with you and monitor early delivery closely, for example by starting with selected case types or channels.',
+        pointsLabel: '',
+        points: [],
       },
       {
-        title: 'Reporting, coaching and improvement',
-        body: 'We report on agreed measures, coach agents continuously and review results with you to keep improving.',
+        title: 'Ongoing improvement',
+        body: 'We use reporting, case reviews and coaching to refine delivery and keep improving with you.',
+        pointsLabel: '',
+        points: [],
       },
     ],
     responsibilities: {
       eyebrow: 'Responsibilities',
       title: 'Clear responsibilities on both sides',
-      intro: 'A dedicated team works best when everyone knows who owns what.',
+      intro: 'A specialist team works best when everyone knows who owns what.',
       weTitle: 'We manage',
       we: [
-        'Recruitment',
+        'Recruitment and assessment',
         'Employment administration',
         'Day-to-day team supervision',
-        'Quality coaching',
-        'Agreed performance reporting',
+        'Case ownership within the agreed scope',
+        'Quality coaching and agreed reporting',
       ],
       clientTitle: 'You provide',
       client: [
@@ -551,98 +651,103 @@ export const en = {
       title: 'What we define before launch',
       intro: 'These points are agreed in writing during scoping, so both sides start with the same expectations.',
       items: [
-        { title: 'Languages', body: 'Which languages are needed, for which channels and at what level.' },
-        { title: 'Channels', body: 'Email, tickets, phone, chat or back-office work — and how they are prioritised.' },
-        { title: 'Working hours and holiday coverage', body: 'Opening hours, peak periods and how holidays and absence are covered.' },
-        { title: 'Contact volumes', body: 'Expected volumes and patterns, used to size the team.' },
-        { title: 'Service levels', body: 'Response and handling times the team will work towards.' },
-        { title: 'Training', body: 'Content, materials, experts involved and sign-off before launch.' },
-        { title: 'Escalations', body: 'Routes, owners and response expectations for anything outside the team’s authority.' },
+        { title: 'Case types', body: 'Which cases, queues or processes the team owns, and which stay with your first line or experts.' },
+        { title: 'Languages', body: 'Which languages and markets are needed, for which channels and at what level.' },
+        { title: 'Authority', body: 'What the team may decide, approval limits and what requires your sign-off.' },
+        { title: 'Escalations and handovers', body: 'Routes, owners and response expectations for anything outside the team’s authority.' },
+        { title: 'Working hours and coverage', body: 'Opening hours, peak periods and how holidays and absence are covered.' },
+        { title: 'Volumes', body: 'Expected case volumes and patterns, used to size the team.' },
+        { title: 'Training', body: 'Content, example cases, experts involved and sign-off before launch.' },
         { title: 'Data access', body: 'Which systems and data the team needs, and how access is granted and removed.' },
-        { title: 'Commercial scope', body: 'Team size, coverage and services included in the engagement.' },
+        { title: 'Reporting', body: 'The quality and performance measures we report on, and the review rhythm.' },
       ],
     },
     timing: {
       title: 'About timelines',
-      body: 'Launch dates depend on recruitment, systems access and training. We agree a realistic plan with you during scoping instead of promising a fixed lead time.',
+      body: 'Launch dates depend on recruitment, access to your systems and training. We agree a realistic plan with you during scoping instead of promising a fixed launch date.',
     },
   },
 
   markets: {
     hero: {
       eyebrow: 'Markets & languages',
-      title: 'Dutch-speaking and Nordic markets, approached one by one',
+      title: 'Dutch, German, Norwegian and English — approached market by market',
       intro:
-        'We focus on a small group of Northern European markets. Each has its own language, customer expectations and ways of doing business.',
+        'Greece-based specialist support teams for Dutch-, German-, Norwegian- and English-speaking customers, with German-language delivery tailored to Germany, Switzerland and Austria.',
     },
     distinction: {
       title: 'Website languages and delivery languages are not the same',
       websiteTitle: 'Website languages',
       websiteBody:
-        'This website is available in English, Dutch, Norwegian, Swedish, Danish and Finnish so you can read about our services in your own language.',
-      deliveryTitle: 'Customer-service languages',
+        'This website is currently published in English. Any further website languages are a separate decision from the languages our teams deliver in.',
+      deliveryTitle: 'Delivery languages',
       deliveryBody:
-        'Delivery languages are offered after we have confirmed recruitment and availability for your project. A translated web page does not mean a staffed team is immediately available in that language.',
+        'Delivery languages are offered once we have confirmed recruitment and availability for your project. Not every delivery language is staffed and immediately available.',
     },
     marketsTitle: 'Our market focus',
     marketsIntro:
-      'We do not have offices in these countries and do not claim established customers there. They are the markets our teams are designed to serve.',
+      'These are the markets our teams are designed to serve. We do not have local offices there and do not claim established clients or existing staffing in each market.',
     items: [
       {
-        name: 'Netherlands',
+        name: 'Netherlands & Dutch-speaking Belgium',
         language: 'Dutch',
-        body: 'Customers tend to value direct, clear and efficient communication, with quick resolution through digital channels.',
+        body: 'Support for customers in the Netherlands and Flanders. French- and German-speaking Belgium would require separate language coverage.',
       },
       {
-        name: 'Dutch-speaking Belgium',
-        language: 'Dutch (Flemish)',
-        body: 'We support Dutch-speaking customers in Flanders. This does not cover French- or German-speaking Belgium, which require separate language coverage.',
+        name: 'Germany',
+        language: 'German',
+        body: 'German-language support for customers and partners in Germany, following German business and communication conventions.',
+      },
+      {
+        name: 'German-speaking Switzerland',
+        language: 'German',
+        body: 'German-language support with attention to Swiss terminology and communication conventions. We do not offer Swiss German dialect support or coverage of Switzerland’s other languages as standard.',
+      },
+      {
+        name: 'Austria',
+        language: 'German',
+        body: 'German-language support with attention to Austrian terminology, conventions and market expectations.',
       },
       {
         name: 'Norway',
         language: 'Norwegian',
-        body: 'Norwegian customer care requires Norwegian-language skills and an informal yet precise tone that Norwegian customers expect.',
+        body: 'Norwegian-language support for customers and partners in Norway.',
       },
       {
-        name: 'Sweden',
-        language: 'Swedish',
-        body: 'Swedish customers generally expect a friendly, egalitarian tone and well-structured, reliable follow-up.',
-      },
-      {
-        name: 'Denmark',
-        language: 'Danish',
-        body: 'Danish customer care requires Danish-language skills and a straightforward, personable communication style.',
-      },
-      {
-        name: 'Finland',
-        language: 'Finnish',
-        body: 'Finnish is a distinct language from the Scandinavian languages, and customers often value concise, matter-of-fact service.',
+        name: 'English-language operations',
+        language: 'English',
+        body: 'English for international customers and partners, or combined with the other delivery languages.',
       },
     ],
     principles: {
       title: 'How we approach language delivery',
       items: [
         {
-          title: 'Nordic markets are not one market',
-          body: 'Norwegian, Swedish, Danish and Finnish are separate languages with different expectations. We scope each one individually.',
+          title: 'Language is only part of the fit',
+          body: 'Language is only part of the fit. We assess the communication skills, market familiarity and specialist knowledge required for your account.',
         },
         {
-          title: 'Proficiency assessed for the role',
-          body: 'We assess language skills for the level the role requires, for written and spoken channels as relevant.',
+          title: 'One language, three markets',
+          body: 'German-language delivery for Switzerland and Austria requires appropriate local terminology and market awareness, not only German proficiency.',
+        },
+        {
+          title: 'Assessed for the role',
+          body: 'We assess language skills for the level the role requires, for written and spoken channels as relevant, subject to role-specific recruitment.',
         },
         {
           title: 'Availability confirmed per project',
           body: 'Whether a language can be staffed, and when, is confirmed during scoping for each project.',
         },
-        {
-          title: 'English alongside',
-          body: 'English can be combined with the other languages, for example for international customers or partners.',
-        },
       ],
+    },
+    otherLanguages: {
+      title: 'Other languages',
+      body: 'We can assess additional language requirements for suitable projects. Availability, recruitment and delivery scope are confirmed before we commit.',
     },
     cta: {
       title: 'Discuss your language requirements.',
       body: 'Tell us which markets and languages you need. We will tell you honestly what is feasible and what it would take.',
+      button: 'Discuss your language requirements',
     },
   },
 
@@ -650,15 +755,19 @@ export const en = {
     hero: {
       eyebrow: `About ${company.name}`,
       title: brand.secondaryLine,
-      intro: `${company.name} is a Greece-based boutique customer-operations partner focused on small, dedicated teams for Dutch-speaking and Nordic markets.`,
+      intro: `${company.name} builds small, dedicated specialist support teams for SMEs and specialist departments within multinational organisations — taking ownership of the cases that need deeper knowledge, judgement and follow-through.`,
     },
     philosophy: {
-      title: 'What we believe in',
+      title: 'Our operating model',
       intro:
-        'We help SMEs and specialist departments within larger organisations build customer-care teams around their own processes, customers and brand—with clear accountability and hands-on management.',
+        'We focus on specialist and second-line support, dealer and partner support and B2B customer operations, working alongside your own teams and any existing providers.',
       items: [
         {
-          title: 'Small teams',
+          title: 'A specialist operating model',
+          body: 'Teams are built for work that needs product and process knowledge, sound judgement and coordination — not only contact handling.',
+        },
+        {
+          title: 'Small dedicated teams',
           body: 'Teams of roughly 3–10 people are large enough to provide continuity and small enough to stay personal.',
         },
         {
@@ -666,16 +775,12 @@ export const en = {
           body: 'Every account has a named delivery contact who is responsible for the team and reachable directly.',
         },
         {
-          title: 'Customer understanding',
-          body: 'We take time to understand your customers, your products and how you want to be represented.',
+          title: 'Customer and partner understanding',
+          body: 'We take time to understand your customers, partners, products and how you want to be represented.',
         },
         {
-          title: 'Practical operational experience',
-          body: 'We focus on the practical work of running customer care well: clear procedures, good supervision and steady coaching.',
-        },
-        {
-          title: 'Greece-based delivery',
-          body: 'Our teams are based in Greece, with working hours aligned to Northern European customers.',
+          title: 'Greece-based delivery plans',
+          body: 'Our teams are planned to be based in Greece, with working hours aligned to the markets they serve.',
         },
         {
           title: 'Long-term relationships',
@@ -683,11 +788,31 @@ export const en = {
         },
       ],
     },
+    experience: {
+      eyebrow: 'Experience',
+      title: 'A new company. An experienced foundation.',
+      paragraphs: [
+        'Relavique is built on years of hands-on Customer Experience consulting and operational experience, including work for Vodafone, Philips, Miele, Stellantis, ANZ Bank, ABN AMRO, Dyson, Klarna, Danone and FrieslandCampina.',
+        'That experience shapes our approach: understand the customer journey, define responsibilities clearly, equip people with the right knowledge and follow cases through with care and accountability.',
+      ],
+      connectionsTitle: 'How that experience shapes our delivery',
+      connections: [
+        'Clear case ownership',
+        'Customer and partner understanding',
+        'Documented processes',
+        'Effective escalation',
+        'Cross-functional coordination',
+        'Practical quality coaching',
+        'Accountable delivery',
+      ],
+      scopeNote:
+        'Our specific service capabilities are described on our service pages. They are not a description of the founder’s role at each organisation listed.',
+    },
     greece: {
       title: 'Why Greece',
       paragraphs: [
-        'Greece has a multilingual workforce, including people who speak Dutch or Nordic languages, and a time zone that overlaps closely with Northern European working days.',
-        'We use a remote-first working model with structured supervision, so we can recruit the right people for each role rather than only those living near a particular office.',
+        'Greece has a multilingual workforce and a time zone that overlaps closely with working days in the Netherlands, Germany, Switzerland, Austria and Norway.',
+        'We plan a remote-first working model with structured supervision, so we can recruit the right people for each role rather than only those living near a particular office.',
       ],
       note: 'Photographs show Athens for illustration and do not depict our premises.',
     },
@@ -699,28 +824,28 @@ export const en = {
   careers: {
     hero: {
       eyebrow: 'Careers',
-      title: 'Remote customer-care roles, based in Greece',
+      title: 'Specialist customer-operations roles, based in Greece',
       intro:
-        'We build dedicated teams that support Dutch-speaking and Nordic customers. If you have the languages and want to work in customer care, we would like to hear from you.',
+        'We build small, dedicated teams that handle specialist cases, partner support and business-customer operations. If you have the languages and enjoy following cases through, we would like to hear from you.',
     },
     roles: {
       title: 'What to know before you apply',
       items: [
         {
-          title: 'Dutch-speaking and Nordic customers',
-          body: 'Roles may support customers in Dutch, Norwegian, Swedish, Danish or Finnish, often alongside English.',
+          title: 'Language focus',
+          body: 'Roles may involve Dutch, German, Norwegian or English. Additional languages may be needed depending on client projects.',
         },
         {
-          title: 'Language and role requirements',
-          body: 'Applicants need to meet the language level and requirements of the specific role. We assess this during recruitment.',
-        },
-        {
-          title: 'Eligibility and place of work',
-          body: 'Your eligibility to work and your place of work are assessed during the recruitment process.',
-        },
-        {
-          title: 'Openings depend on client projects',
+          title: 'Roles depend on client projects',
           body: 'We recruit when a client project needs a team. There may not be an opening that matches your profile right away.',
+        },
+        {
+          title: 'Assessed individually',
+          body: 'Language and role requirements differ per project. We assess them individually during recruitment.',
+        },
+        {
+          title: 'Place of work and eligibility',
+          body: 'Your place of work and eligibility to work are confirmed during the recruitment process.',
         },
       ],
     },
@@ -744,7 +869,7 @@ export const en = {
       eyebrow: 'Discuss your team',
       title: 'Tell us about the team you need',
       intro:
-        'Share a few details about your customers, languages and coverage. We will review your enquiry and get back to you to arrange a conversation.',
+        'Share a few details about your cases, customers, partners and languages. We will review your enquiry and get back to you to arrange a conversation.',
     },
     aside: {
       title: 'What happens next',
@@ -792,6 +917,8 @@ export const en = {
         website: 'Company website',
         languages: 'Required delivery languages',
         languagesHint: 'Select all that apply. Availability is confirmed during scoping.',
+        otherLanguage: 'Other language — please specify',
+        otherLanguageHint: 'Required if you selected “Other”.',
         teamSize: 'Indicative team size',
         services: 'Services required',
         coverage: 'Preferred coverage or working hours',
@@ -799,15 +926,15 @@ export const en = {
         startDate: 'Indicative start date',
         startDateHint: 'For example: Q2 or “after the summer”.',
         message: 'Message',
-        messageHint: 'Briefly describe your customers, contact types and what you are looking for.',
+        messageHint: 'Briefly describe your cases, customers or partners, and what you are looking for.',
         marketing: 'Optional: I would like to receive occasional updates from you by email.',
       },
       languageOptions: {
         dutch: 'Dutch',
+        germanGermany: 'German — Germany',
+        germanSwitzerland: 'German — Switzerland',
+        germanAustria: 'German — Austria',
         norwegian: 'Norwegian',
-        swedish: 'Swedish',
-        danish: 'Danish',
-        finnish: 'Finnish',
         english: 'English',
         other: 'Other',
       },
@@ -818,9 +945,11 @@ export const en = {
         unsure: 'Not sure yet',
       },
       serviceOptions: {
-        care: 'Dedicated customer care',
-        specialist: 'Specialist support team',
-        operations: 'Customer operations & back office',
+        specialist: 'Specialist / second-line support',
+        dealer: 'Dealer / partner support',
+        b2b: 'B2B customer operations',
+        care: 'Customer care',
+        backOffice: 'Back-office support',
         unsure: 'Not sure yet',
       },
     },
@@ -830,9 +959,9 @@ export const en = {
         email: 'Email',
         country: 'Current country of residence',
         languages: 'Languages and proficiency',
-        languagesHint: 'For example: Dutch – native, English – fluent, Swedish – conversational.',
+        languagesHint: 'For example: Dutch – native, German – fluent, English – fluent.',
         experience: 'Relevant experience',
-        experienceHint: 'Briefly describe customer-service or related experience.',
+        experienceHint: 'Briefly describe customer-service, case-handling or related experience.',
         profileUrl: 'LinkedIn or profile URL',
         message: 'Message',
       },
@@ -849,26 +978,35 @@ export const en = {
 
   legal: {
     draftNotice:
-      'Draft for legal review. This page is a structure to be completed with verified company information and reviewed by a qualified advisor before launch. It is not legal advice.',
+      'Draft for legal review. This page is a structure to be completed with verified company information and reviewed by a qualified adviser before launch. It is not legal advice.',
     toComplete: 'To be completed',
+    toConfirm: 'To be confirmed before launch',
+    notYetRegistered: 'Not yet registered',
     docs: {
       privacy: {
         title: 'Privacy notice',
-        description: 'How we handle personal data submitted through this website.',
+        description: 'How personal data submitted through this website is handled.',
         sections: [
-          { heading: 'Who we are', body: 'The controller of your personal data is the company identified on the legal and company information page.' },
+          {
+            heading: 'Who is responsible',
+            body: 'The entity responsible for personal data submitted through this website (the data controller) is still to be confirmed and will be stated here before launch. During 2026, preparatory activities for Relavique are conducted through the founder’s Belgian corporation, listed on the legal and company information page.',
+          },
           { heading: 'What data we collect', body: 'When you submit an enquiry, we receive the details you enter in the form, such as your name, work email, company and message.' },
           { heading: 'Why we use it', body: 'We use enquiry details to respond to your request and to discuss a possible engagement. If you opt in separately, we may send occasional updates.' },
           { heading: 'Legal basis', body: 'The legal basis for each processing purpose will be documented here after legal review.' },
-          { heading: 'Who receives it', body: 'Service providers used to deliver form submissions and email will be listed here once selected.' },
+          { heading: 'Who receives it', body: 'Form submissions are delivered by email using Resend, an email delivery provider, and the website is hosted by Vercel. A complete list of processors will be confirmed here after legal review.' },
           { heading: 'How long we keep it', body: 'Retention periods will be defined and stated here after legal review.' },
           { heading: 'Your rights', body: 'Depending on applicable law, you may have rights to access, correct, delete or restrict the use of your data, and to complain to a supervisory authority. Details and contact routes will be added here.' },
         ],
       },
       'recruitment-privacy': {
         title: 'Recruitment privacy notice',
-        description: 'How we handle personal data submitted by people interested in working with us.',
+        description: 'How personal data submitted by people interested in working with us is handled.',
         sections: [
+          {
+            heading: 'Who is responsible',
+            body: 'The entity responsible for applicant data (the data controller) is still to be confirmed and will be stated here before launch.',
+          },
           { heading: 'Purpose', body: 'We use the details you submit to assess whether you may be suitable for current or future roles in client projects.' },
           { heading: 'What data we collect', body: 'Your name, email, country of residence, languages, experience, optional profile link and message. We do not ask for CVs or sensitive personal data at this stage.' },
           { heading: 'Legal basis', body: 'The legal basis for recruitment processing will be documented here after legal review.' },
@@ -887,16 +1025,28 @@ export const en = {
       },
       company: {
         title: 'Legal & company information',
-        description: 'Legal and company details.',
+        description: 'Company status and legal details.',
         sections: [],
       },
     },
+    companyStatus: {
+      title: 'Company status',
+      body: 'Relavique is a brand being developed for a Greece-based specialist customer-operations business. During 2026, preparatory activities are conducted through the founder’s Belgian corporation. A Greek private company (IKE) is being established and is intended to become operational on 1 January 2027, subject to completion of the necessary incorporation and operational arrangements.',
+      brandNote: '“Relavique” is a brand name, not the registered legal name of either company.',
+    },
+    belgianEntityTitle: 'Belgian corporation (preparatory activities, 2026)',
+    greekEntityTitle: 'Greek private company (IKE) — being established',
     companyFields: {
-      name: 'Company name',
+      brand: 'Brand',
       legalName: 'Legal entity name',
-      registrationNumber: 'Registration number',
+      legalForm: 'Legal form',
+      registrationNumber: 'Enterprise / registration number',
       vatNumber: 'VAT number',
+      taxNumber: 'Tax registration',
       registeredAddress: 'Registered address',
+      transitionDate: 'Intended operational date',
+      dataController: 'Data controller for this website',
+      privacyContact: 'Privacy contact',
       email: 'Email',
       phone: 'Phone',
     },

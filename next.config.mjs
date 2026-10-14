@@ -27,6 +27,20 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:locale/services/dedicated-customer-care',
+        destination: '/:locale/services/customer-care-back-office',
+        permanent: true,
+      },
+      {
+        source: '/:locale/services/customer-operations',
+        destination: '/:locale/services/customer-care-back-office',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }]
   },

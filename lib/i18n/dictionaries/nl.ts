@@ -1,13 +1,15 @@
 /**
- * Dutch dictionary. Draft translation for native-speaker review; not professionally reviewed.
- * Must match the shape of en.ts.
+ * OUTDATED DRAFT — DO NOT REGISTER.
+ * Dutch translation of the pre-October-2026 English copy (generic customer care; Dutch/Nordic
+ * markets). It predates the specialist / second-line repositioning and no longer matches the
+ * shape of en.ts, so it is intentionally not typed as `Dictionary`. Kept only as reference
+ * material: re-translate from en.ts, restore the `Dictionary` type annotation, then register it.
  */
 import { brandMessaging, company } from '@/lib/config/company'
-import type { Dictionary } from './en'
 
 const brand = brandMessaging.nl
 
-export const nl: Dictionary = {
+export const nl = {
   brand,
 
   closingCta: {

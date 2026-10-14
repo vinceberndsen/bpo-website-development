@@ -25,6 +25,7 @@ export async function submitEnquiry(_prev: FormState, formData: FormData): Promi
     company: text(formData, 'company'),
     website: text(formData, 'website'),
     languages: list(formData, 'languages', languageOptionKeys),
+    otherLanguage: text(formData, 'otherLanguage'),
     teamSize: text(formData, 'teamSize'),
     services: list(formData, 'services', serviceOptionKeys),
     coverage: text(formData, 'coverage'),
@@ -45,6 +46,7 @@ export async function submitEnquiry(_prev: FormState, formData: FormData): Promi
   set('company', check(values.company, { required: true, max: 160 }))
   set('website', check(values.website, { max: 300, kind: 'url' }))
   if (!values.languages.length) errors.languages = 'selectOne'
+  set('otherLanguage', check(values.otherLanguage, { required: values.languages.includes('other'), max: 200 }))
   if (!(teamSizeKeys as readonly string[]).includes(values.teamSize)) errors.teamSize = 'required'
   if (!values.services.length) errors.services = 'selectOne'
   set('coverage', check(values.coverage, { max: 200 }))

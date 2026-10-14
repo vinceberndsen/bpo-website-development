@@ -5,28 +5,75 @@ import type { Dictionary } from '@/lib/i18n/get-dictionary'
 import { legalSlugs, localePath, paths, type LegalSlug } from '@/lib/routes'
 import { cn } from '@/lib/utils'
 
-function CompanyDetails({ dict }: { dict: Dictionary }) {
-  const f = dict.legal.companyFields
-  const rows: { label: string; value: string | null }[] = [
-    { label: f.name, value: company.name },
-    { label: f.legalName, value: company.legalName },
-    { label: f.registrationNumber, value: company.registrationNumber },
-    { label: f.vatNumber, value: company.vatNumber },
-    { label: f.registeredAddress, value: company.registeredAddress },
-    { label: f.email, value: company.email },
-    { label: f.phone, value: company.phone },
-  ]
+type Row = { label: string; value: string | null; fallback?: string }
+
+function DetailList({ rows, fallback }: { rows: Row[]; fallback: string }) {
   return (
     <dl className="divide-y rounded-lg border bg-card">
       {rows.map((row) => (
         <div key={row.label} className="grid gap-1 px-5 py-4 sm:grid-cols-3 sm:gap-6">
           <dt className="text-sm font-semibold">{row.label}</dt>
           <dd className={cn('sm:col-span-2', row.value ? '' : 'text-sm italic text-muted-foreground')}>
-            {row.value ?? dict.legal.toComplete}
+            {row.value ?? row.fallback ?? fallback}
           </dd>
         </div>
       ))}
     </dl>
+  )
+}
+
+function CompanyDetails({ dict }: { dict: Dictionary }) {
+  const l = dict.legal
+  const f = l.companyFields
+  const { belgianEntity: be, greekEntity: gr } = company.legal
+  return (
+    <div className="flex flex-col gap-10">
+      <section>
+        <h2 className="font-serif text-2xl font-medium">{l.companyStatus.title}</h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">{l.companyStatus.body}</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{l.companyStatus.brandNote}</p>
+      </section>
+      <section>
+        <h2 className="mb-4 font-serif text-xl font-medium">{l.belgianEntityTitle}</h2>
+        <DetailList
+          fallback={l.toComplete}
+          rows={[
+            { label: f.legalName, value: be.name },
+            { label: f.legalForm, value: be.legalForm },
+            { label: f.registrationNumber, value: be.registrationNumber },
+            { label: f.vatNumber, value: be.vatNumber },
+            { label: f.registeredAddress, value: be.registeredAddress },
+          ]}
+        />
+      </section>
+      <section>
+        <h2 className="mb-4 font-serif text-xl font-medium">{l.greekEntityTitle}</h2>
+        <DetailList
+          fallback={l.notYetRegistered}
+          rows={[
+            { label: f.legalName, value: gr.name },
+            { label: f.legalForm, value: gr.legalForm },
+            { label: f.registrationNumber, value: gr.registrationNumber },
+            { label: f.taxNumber, value: gr.taxNumber },
+            { label: f.registeredAddress, value: gr.registeredAddress },
+            { label: f.transitionDate, value: company.legal.intendedTransitionDate },
+          ]}
+        />
+      </section>
+      <section>
+        <h2 className="mb-4 font-serif text-xl font-medium">{dict.footer.contactHeading}</h2>
+        <DetailList
+          fallback={l.toComplete}
+          rows={[
+            { label: f.brand, value: company.name },
+            { label: f.dataController, value: company.legal.dataController, fallback: l.toConfirm },
+            { label: f.privacyContact, value: company.legal.privacyContact, fallback: l.toConfirm },
+            { label: f.email, value: company.email },
+            { label: f.phone, value: company.phone },
+          ]}
+        />
+      </section>
+    </div>
   )
 }
 

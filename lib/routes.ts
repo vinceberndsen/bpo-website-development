@@ -1,9 +1,11 @@
 import type { Locale } from '@/lib/i18n/config'
 
+/** In priority order. Retired slugs are permanently redirected in next.config.mjs. */
 export const serviceSlugs = [
-  'dedicated-customer-care',
   'specialist-support-teams',
-  'customer-operations',
+  'dealer-partner-support',
+  'b2b-customer-operations',
+  'customer-care-back-office',
 ] as const
 export type ServiceSlug = (typeof serviceSlugs)[number]
 

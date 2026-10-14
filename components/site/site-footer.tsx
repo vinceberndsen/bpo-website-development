@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { company } from '@/lib/config/company'
+import { company, currentEntity } from '@/lib/config/company'
 import type { Locale } from '@/lib/i18n/config'
 import type { Dictionary } from '@/lib/i18n/get-dictionary'
 import { localePath, paths, serviceSlugs } from '@/lib/routes'
@@ -113,7 +113,11 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col gap-2 py-6 text-xs text-navy-muted sm:flex-row sm:justify-between">
           <p>
-            © {year} {company.legalName ?? company.name}. {dict.footer.rights}
+            © {year} {currentEntity().name ?? company.name}. {dict.footer.rights}{' '}
+            {dict.footer.statusNote}{' '}
+            <Link href={p(paths.legal('company'))} className="underline underline-offset-2 hover:text-primary-foreground">
+              {dict.footer.statusLink}
+            </Link>
           </p>
           <p>{dict.footer.photoCredit}</p>
         </div>

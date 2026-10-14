@@ -4,22 +4,24 @@ import type { Locale } from '@/lib/i18n/config'
 import type { Dictionary } from '@/lib/i18n/get-dictionary'
 import type { ImageKey } from '@/lib/images'
 import { localePath, paths, serviceSlugs, type ServiceSlug } from '@/lib/routes'
-import { CheckList, FeatureGrid } from '@/components/ui-kit/blocks'
-import { ButtonLink } from '@/components/ui-kit/button-link'
+import { cn } from '@/lib/utils'
+import { CheckList } from '@/components/ui-kit/blocks'
+import { ButtonLink, TextLink } from '@/components/ui-kit/button-link'
 import { CtaBand } from '@/components/ui-kit/cta-band'
 import { PageHero } from '@/components/ui-kit/page-hero'
 import { Photo } from '@/components/ui-kit/photo'
 import { Section, SectionHeader } from '@/components/ui-kit/section'
 
 export const serviceImages: Record<ServiceSlug, ImageKey> = {
-  'dedicated-customer-care': 'customerCare',
   'specialist-support-teams': 'specialist',
-  'customer-operations': 'backOffice',
+  'dealer-partner-support': 'howItWorks',
+  'b2b-customer-operations': 'dedicated',
+  'customer-care-back-office': 'backOffice',
 }
 
 function ServiceCards({ locale, dict, slugs }: { locale: Locale; dict: Dictionary; slugs: readonly ServiceSlug[] }) {
   return (
-    <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <ul className={cn('grid gap-6 md:grid-cols-2', slugs.length === 3 && 'lg:grid-cols-3')}>
       {slugs.map((slug) => {
         const s = dict.services.items[slug]
         return (
@@ -55,7 +57,7 @@ export function ServicesOverviewPage({ locale, dict }: { locale: Locale; dict: D
   const p = (path: string) => localePath(locale, path)
   return (
     <>
-      <PageHero eyebrow={t.hero.eyebrow} title={t.hero.title} intro={t.hero.intro} image="howItWorks" imageAlt={dict.images.howItWorks}>
+      <PageHero eyebrow={t.hero.eyebrow} title={t.hero.title} intro={t.hero.intro} image="hero" imageAlt={dict.images.hero}>
         <ButtonLink href={p(paths.contact)} withArrow>
           {dict.common.discussYourTeam}
         </ButtonLink>
@@ -102,21 +104,17 @@ export function ServiceDetailPage({ locale, dict, slug }: { locale: Locale; dict
         </ButtonLink>
       </PageHero>
 
-      <Section labelledBy="use-cases-title">
+      <Section labelledBy="problem-title">
         <div className="grid gap-10 lg:grid-cols-12">
-          <SectionHeader id="use-cases-title" title={labels.useCases} className="lg:col-span-5" />
-          <CheckList items={s.useCases} className="text-lg lg:col-span-7" />
+          <SectionHeader id="problem-title" title={labels.problem} intro={s.problem} className="lg:col-span-5" />
+          <div className="lg:col-span-7">
+            <h3 className="mb-5 font-serif text-xl font-medium">{labels.scope}</h3>
+            <CheckList items={s.scope} className="text-lg" />
+          </div>
         </div>
       </Section>
 
-      <Section tone="muted" labelledBy="handles-title">
-        <SectionHeader id="handles-title" title={labels.handles} intro={s.channelsNote} />
-        <div className="mt-10">
-          <FeatureGrid items={s.handles} columns={s.handles.length === 4 ? 4 : 3} />
-        </div>
-      </Section>
-
-      <Section labelledBy="responsibilities-title">
+      <Section tone="muted" labelledBy="responsibilities-title">
         <SectionHeader id="responsibilities-title" title={labels.responsibilities} />
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           <div className="rounded-lg bg-primary p-6 text-primary-foreground sm:p-8">
@@ -128,16 +126,32 @@ export function ServiceDetailPage({ locale, dict, slug }: { locale: Locale; dict
             <CheckList items={s.clientRetains} icon="dash" />
           </div>
         </div>
+        <aside className="mt-6 rounded-lg border border-accent/30 bg-card p-6 sm:p-8">
+          <h3 className="mb-4 font-semibold">{labels.boundaries}</h3>
+          <CheckList items={s.boundaries} />
+        </aside>
       </Section>
 
-      <Section tone="muted" labelledBy="quality-title">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <SectionHeader id="quality-title" title={labels.quality} intro={s.quality.body} className="lg:col-span-5" />
-          <CheckList items={s.quality.points} className="lg:col-span-7" />
+      <Section labelledBy="onboarding-title">
+        <div className="grid gap-12 lg:grid-cols-2">
+          <div>
+            <SectionHeader id="onboarding-title" title={labels.onboarding} intro={s.onboarding} />
+            <p className="mt-6 border-l-2 border-accent pl-4 text-sm leading-relaxed text-muted-foreground">
+              {labels.experienceNote}
+            </p>
+            <TextLink href={p(paths.howItWorks)} className="mt-6">
+              {labels.onboardingLink}
+            </TextLink>
+          </div>
+          <div>
+            <h2 className="font-serif text-3xl font-medium tracking-tight">{labels.quality}</h2>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{s.quality.body}</p>
+            <CheckList items={s.quality.points} className="mt-6" />
+          </div>
         </div>
       </Section>
 
-      <Section labelledBy="related-title">
+      <Section tone="muted" labelledBy="related-title">
         <SectionHeader id="related-title" title={labels.related} />
         <div className="mt-10">
           <ServiceCards locale={locale} dict={dict} slugs={related} />
