@@ -7,7 +7,7 @@ export type Locale = (typeof supportedLocales)[number]
  * Add a locale here only once its dictionary in ./dictionaries exists and has been reviewed,
  * so English copy is never published under a translated URL.
  */
-export const locales: readonly Locale[] = ['en']
+export const locales: readonly Locale[] = ['en', 'nl']
 
 export const defaultLocale: Locale = 'en'
 

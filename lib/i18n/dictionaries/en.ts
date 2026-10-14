@@ -679,7 +679,7 @@ export const en = {
       title: 'Website languages and delivery languages are not the same',
       websiteTitle: 'Website languages',
       websiteBody:
-        'This website is currently published in English. Any further website languages are a separate decision from the languages our teams deliver in.',
+        'This website is currently published in English and Dutch. Any further website languages are a separate decision from the languages our teams deliver in.',
       deliveryTitle: 'Delivery languages',
       deliveryBody:
         'Delivery languages are offered once we have confirmed recruitment and availability for your project. Not every delivery language is staffed and immediately available.',
