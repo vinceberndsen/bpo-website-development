@@ -88,7 +88,7 @@ Canonical URLs, hreflang, sitemap entries and `robots.txt` allow-rules are produ
 - [x] `NEXT_PUBLIC_SITE_URL=https://www.relavique.com` set for Production.
 - [ ] Merge the latest `v0/relavique-positioning` changes into `main` so Production redeploys.
 - [ ] Confirm `robots.txt` allows crawling and `sitemap.xml` lists only the English pages.
-- [ ] Confirm the `hello@relavique.com` mailbox (Proton) receives mail.
+- [x] Proton mailboxes active: `hello@` (general + business enquiries), `careers@` (candidate registrations), `privacy@` (privacy requests), `vincent@` (personal, not published on the site).
 - [ ] Decide the form recipient (currently the default in `company.ts`) and send one test enquiry and one test candidate registration on production.
 - [ ] Confirm the exact registered name of the Belgian corporation against the Crossroads Bank for Enterprises (KBO) record, then review the legal pages (privacy, recruitment privacy, cookies, company information) with an adviser.
 - [ ] Review all English copy and photography.

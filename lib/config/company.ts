@@ -79,7 +79,7 @@ export const company: CompanyConfig = {
     },
     intendedTransitionDate: '1 January 2027',
     dataController: 'Hatch Europe Consulting, Sterstraat 66a, 3920 Lommel, Belgium',
-    privacyContact: 'hello@relavique.com',
+    privacyContact: 'privacy@relavique.com',
   },
   email: 'hello@relavique.com',
   phone: null,
@@ -218,10 +218,13 @@ export const brandMessaging: Record<Locale, BrandMessaging> = {
 }
 
 /**
- * Where website form submissions are emailed. Server-only, never rendered on the site.
- * Override with FORM_RECIPIENT_EMAIL; this default is a temporary inbox until a company address exists.
+ * Where website form submissions are emailed, per form. Server-only, never rendered on the site.
+ * FORM_RECIPIENT_EMAIL, if set, overrides both (useful for testing).
  */
-export const defaultFormRecipient = 'vincent.berndsen@pm.me'
+export const formRecipients = {
+  enquiry: 'hello@relavique.com',
+  candidate: 'careers@relavique.com',
+} as const
 
 export function getFounderBio(locale: Locale): string | null {
   const bio = company.founder.bio[locale]

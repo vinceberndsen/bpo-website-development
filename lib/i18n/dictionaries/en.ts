@@ -996,7 +996,7 @@ export const en = {
           { heading: 'Legal basis', body: 'The legal basis for each processing purpose will be documented here after legal review.' },
           { heading: 'Who receives it', body: 'Form submissions are delivered by email using Resend, an email delivery provider, and the website is hosted by Vercel. A complete list of processors will be confirmed here after legal review.' },
           { heading: 'How long we keep it', body: 'Retention periods will be defined and stated here after legal review.' },
-          { heading: 'Your rights', body: 'Depending on applicable law, you may have rights to access, correct, delete or restrict the use of your data, and to complain to a supervisory authority (in Belgium, the Data Protection Authority). To exercise your rights, email hello@relavique.com.' },
+          { heading: 'Your rights', body: 'Depending on applicable law, you may have rights to access, correct, delete or restrict the use of your data, and to complain to a supervisory authority (in Belgium, the Data Protection Authority). To exercise your rights, email privacy@relavique.com.' },
         ],
       },
       'recruitment-privacy': {
@@ -1011,7 +1011,7 @@ export const en = {
           { heading: 'What data we collect', body: 'Your name, email, country of residence, languages, experience, optional profile link and message. We do not ask for CVs or sensitive personal data at this stage.' },
           { heading: 'Legal basis', body: 'The legal basis for recruitment processing will be documented here after legal review.' },
           { heading: 'Retention', body: 'How long expressions of interest are kept, and how you can ask for removal, will be stated here after legal review.' },
-          { heading: 'Your rights', body: 'Depending on applicable law, you may access, correct or delete your data and complain to a supervisory authority (in Belgium, the Data Protection Authority). To exercise your rights, email hello@relavique.com.' },
+          { heading: 'Your rights', body: 'Depending on applicable law, you may access, correct or delete your data and complain to a supervisory authority (in Belgium, the Data Protection Authority). To exercise your rights, email privacy@relavique.com.' },
         ],
       },
       cookies: {

@@ -1,7 +1,7 @@
 import 'server-only'
 import { createHash } from 'node:crypto'
 import { Resend } from 'resend'
-import { company, defaultFormRecipient } from '@/lib/config/company'
+import { company, formRecipients } from '@/lib/config/company'
 
 export type FormKind = 'enquiry' | 'candidate'
 type DeliveryResult = 'sent' | 'not-configured' | 'error'
@@ -54,7 +54,7 @@ async function deliverByEmail(kind: FormKind, payload: Record<string, unknown>):
       from:
         process.env.RESEND_FROM_EMAIL ||
         `${company.name} website <noreply@${process.env.RESEND_EMAIL_DOMAIN || 'resend.dev'}>`,
-      to: [process.env.FORM_RECIPIENT_EMAIL || defaultFormRecipient],
+      to: [process.env.FORM_RECIPIENT_EMAIL || formRecipients[kind]],
       replyTo,
       subject: `[${company.name}] ${subjects[kind]}${name ? ` — ${name}` : ''}`,
       text,
