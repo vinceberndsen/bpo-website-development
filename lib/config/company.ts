@@ -1,12 +1,13 @@
 import type { Locale } from '@/lib/i18n/config'
 
 /**
- * Central business details. Replace placeholder values before launch.
+ * Central business details — the single source for the legal entity name, registration,
+ * address, contact and data controller used across the footer, company page and privacy notices.
  *
  * Every optional field is `null` until a verified value is supplied. Components only
  * render a detail (email, phone, address, registration, social links, founder bio)
  * when its value is set here, so the site never publishes fictitious information.
- * See LAUNCH-CHECKLIST.md.
+ * See the launch checklist in README.md.
  */
 type LegalEntity = {
   name: string | null

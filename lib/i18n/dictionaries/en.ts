@@ -904,7 +904,7 @@ export const en = {
       honeypot: 'Leave this field empty',
       selectPlaceholder: 'Select…',
       privacyBefore: 'I have read the',
-      privacyAfter: 'and understand how my details will be used to respond to this enquiry.',
+      privacyAfter: 'and understand how my details will be used.',
       privacyLinkText: 'privacy notice',
       recruitmentPrivacyLinkText: 'recruitment privacy notice',
     },
@@ -978,7 +978,7 @@ export const en = {
 
   legal: {
     draftNotice:
-      'Draft for legal review. This page is a structure to be completed with verified company information and reviewed by a qualified adviser before launch. It is not legal advice.',
+      'This page is pending review by a qualified adviser and may be updated. Sections marked as still to be completed will be finalised after that review. It is not legal advice.',
     toComplete: 'To be completed',
     toConfirm: 'To be confirmed before launch',
     notYetRegistered: 'Not yet registered',
@@ -989,7 +989,7 @@ export const en = {
         sections: [
           {
             heading: 'Who is responsible',
-            body: 'The data controller for personal data submitted through this website is Hatch Europe Consulting, Sterstraat 66a, 3920 Lommel, Belgium (enterprise number 1005.878.023). During 2026, preparatory activities for Relavique are conducted through this Belgian corporation. For any privacy question or request, email hello@relavique.com.',
+            body: `The data controller for personal data submitted through this website is ${company.legal.dataController} (enterprise number ${company.legal.belgianEntity.registrationNumber}). During 2026, preparatory activities for Relavique are conducted through this Belgian corporation. For any privacy question or request, email ${company.legal.privacyContact}.`,
           },
           { heading: 'What data we collect', body: 'When you submit an enquiry, we receive the details you enter in the form, such as your name, work email, company and message.' },
           { heading: 'Why we use it', body: 'We use enquiry details to respond to your request and to discuss a possible engagement. If you opt in separately, we may send occasional updates.' },
@@ -1005,7 +1005,7 @@ export const en = {
         sections: [
           {
             heading: 'Who is responsible',
-            body: 'The data controller for applicant data is Hatch Europe Consulting, Sterstraat 66a, 3920 Lommel, Belgium (enterprise number 1005.878.023). For any privacy question or request, email hello@relavique.com.',
+            body: `The data controller for applicant data is ${company.legal.dataController} (enterprise number ${company.legal.belgianEntity.registrationNumber}). During 2026, recruitment preparation for Relavique is conducted through this Belgian corporation. For any privacy question or request, email ${company.legal.privacyContact}.`,
           },
           { heading: 'Purpose', body: 'We use the details you submit to assess whether you may be suitable for current or future roles in client projects.' },
           { heading: 'What data we collect', body: 'Your name, email, country of residence, languages, experience, optional profile link and message. We do not ask for CVs or sensitive personal data at this stage.' },
@@ -1031,7 +1031,7 @@ export const en = {
     },
     companyStatus: {
       title: 'Company status',
-      body: 'Relavique is a brand being developed for a Greece-based specialist customer-operations business. During 2026, preparatory activities are conducted through the founder’s Belgian corporation. A Greek private company (IKE) is being established and is intended to become operational on 1 January 2027, subject to completion of the necessary incorporation and operational arrangements.',
+      body: 'Relavique is a brand being developed for a Greece-based specialist customer-operations business. During 2026, preparatory activities are conducted through the founder’s Belgian corporation. A Greek private company (IKE) is being established and is intended to become operational on 1 January 2027, subject to completion of the necessary incorporation and operational arrangements. This date is an intention, not a commitment. Agreements, personal data and obligations do not transfer automatically on that date; any change in the responsible entity will be reflected on this page.',
       brandNote: '“Relavique” is a brand name, not the registered legal name of either company.',
     },
     belgianEntityTitle: 'Belgian corporation (preparatory activities, 2026)',

@@ -1,11 +1,21 @@
 # Relavique website
 
-Marketing website for **Relavique**, a specialist and second-line customer support provider operated by Hatch Consulting Europe (Lommel, Belgium).
+Marketing website for **Relavique**, a specialist and second-line customer support brand.
 
 Built with Next.js 16 (App Router), React 19, Tailwind CSS v4 and TypeScript. Deployed on Vercel.
 
-- Live: https://www.relavique.com (serves the `main` branch)
+- Live: https://www.relavique.com (Production deploys from `main`)
 - Working branch: `v0/relavique-positioning`
+- Launch scope: **English only**. The translation architecture is in place but no other language is published.
+
+## Legal and operator status
+
+All legal details live in `lib/config/company.ts` and are rendered from there (footer, company page, privacy notices).
+
+- **Brand:** Relavique (not a registered legal name).
+- **Currently responsible (2026, preparation phase):** Hatch Europe Consulting, Sterstraat 66a, 3920 Lommel, Belgium — enterprise number 1005.878.023, VAT BE1005.878.023. Also the data controller for website enquiries and applicant data.
+- **Greek IKE:** being established; all fields stay `null` until registration is confirmed. The intended operational date (1 January 2027) is an intention only.
+- `legal.status` is switched **manually** to `greek-operational` — never based on the calendar — and only after incorporation and the legal arrangements are confirmed. Nothing transfers automatically.
 
 ## Run locally
 
@@ -38,8 +48,11 @@ pnpm build   # production build (also runs the type check)
 ## Content and languages
 
 - All copy lives in `lib/i18n/dictionaries/en.ts` (British English). Components contain no hard-coded copy.
-- Supported locales: `en`, `nl`, `nb`, `sv`, `da`, `fi`. Only locales listed in `locales` in `lib/i18n/config.ts` are served, so untranslated pages are never published.
-- To add a language: create `lib/i18n/dictionaries/<locale>.ts` with the same shape as `en.ts` (TypeScript flags missing keys), get it reviewed, register it in `get-dictionary.ts`, then add the locale to `locales`.
+- `supportedLocales` in `lib/i18n/config.ts` lists the languages the code can handle (`en`, `nl`, `nb`, `sv`, `da`, `fi`). `locales` lists the **published** ones — currently only `en`.
+- Only published locales get routes, appear in the language selector (hidden while there is just one), the sitemap and hreflang. A request for an unpublished prefix such as `/nl/about` redirects to `/en/about`.
+- `nl.ts` and the non-English entries in `brandMessaging` are **outdated drafts** from before the specialist / second-line repositioning. They are not registered or served, and must be re-translated from `en.ts` before use.
+- Website languages are separate from service-delivery languages (Dutch; German for Germany, Switzerland and Austria; Norwegian; English; others on request).
+- To publish a language: bring `lib/i18n/dictionaries/<locale>.ts` to the same shape as `en.ts` (TypeScript flags missing keys), update its `brandMessaging` entry, have it reviewed, register it in `get-dictionary.ts`, then add the locale to `locales`.
 
 ## Forms
 
@@ -72,12 +85,12 @@ Canonical URLs, hreflang, sitemap entries and `robots.txt` allow-rules are produ
 
 ## Launch checklist
 
-- [ ] Merge `v0/relavique-positioning` into `main` (the live site still runs the earlier version).
-- [ ] Set `NEXT_PUBLIC_SITE_URL=https://www.relavique.com` for Production, then redeploy.
-- [ ] Confirm `robots.txt` allows crawling and `sitemap.xml` lists all English pages.
-- [ ] Set up the `hello@relavique.com` mailbox (Proton) and confirm it receives mail.
+- [x] `NEXT_PUBLIC_SITE_URL=https://www.relavique.com` set for Production.
+- [ ] Merge the latest `v0/relavique-positioning` changes into `main` so Production redeploys.
+- [ ] Confirm `robots.txt` allows crawling and `sitemap.xml` lists only the English pages.
+- [ ] Confirm the `hello@relavique.com` mailbox (Proton) receives mail.
 - [ ] Decide the form recipient (currently the default in `company.ts`) and send one test enquiry and one test candidate registration on production.
-- [ ] Review legal pages (privacy, cookies, terms) with an adviser; data controller is Hatch Consulting Europe, Lommel.
+- [ ] Confirm the exact registered name of the Belgian corporation against the Crossroads Bank for Enterprises (KBO) record, then review the legal pages (privacy, recruitment privacy, cookies, company information) with an adviser.
 - [ ] Review all English copy and photography.
 - [ ] Check desktop and mobile layouts on real devices.
 - [ ] Optional: submit the sitemap in Google Search Console.
