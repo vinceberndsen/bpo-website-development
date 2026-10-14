@@ -77,10 +77,10 @@ export const company: CompanyConfig = {
       registeredAddress: null,
     },
     intendedTransitionDate: '1 January 2027',
-    dataController: null,
-    privacyContact: null,
+    dataController: 'Hatch Europe Consulting, Sterstraat 66a, 3920 Lommel, Belgium',
+    privacyContact: 'hello@relavique.com',
   },
-  email: null,
+  email: 'hello@relavique.com',
   phone: null,
   social: {
     linkedin: null,

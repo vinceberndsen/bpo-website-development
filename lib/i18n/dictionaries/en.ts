@@ -989,14 +989,14 @@ export const en = {
         sections: [
           {
             heading: 'Who is responsible',
-            body: 'The entity responsible for personal data submitted through this website (the data controller) is still to be confirmed and will be stated here before launch. During 2026, preparatory activities for Relavique are conducted through the founder’s Belgian corporation, listed on the legal and company information page.',
+            body: 'The data controller for personal data submitted through this website is Hatch Europe Consulting, Sterstraat 66a, 3920 Lommel, Belgium (enterprise number 1005.878.023). During 2026, preparatory activities for Relavique are conducted through this Belgian corporation. For any privacy question or request, email hello@relavique.com.',
           },
           { heading: 'What data we collect', body: 'When you submit an enquiry, we receive the details you enter in the form, such as your name, work email, company and message.' },
           { heading: 'Why we use it', body: 'We use enquiry details to respond to your request and to discuss a possible engagement. If you opt in separately, we may send occasional updates.' },
           { heading: 'Legal basis', body: 'The legal basis for each processing purpose will be documented here after legal review.' },
           { heading: 'Who receives it', body: 'Form submissions are delivered by email using Resend, an email delivery provider, and the website is hosted by Vercel. A complete list of processors will be confirmed here after legal review.' },
           { heading: 'How long we keep it', body: 'Retention periods will be defined and stated here after legal review.' },
-          { heading: 'Your rights', body: 'Depending on applicable law, you may have rights to access, correct, delete or restrict the use of your data, and to complain to a supervisory authority. Details and contact routes will be added here.' },
+          { heading: 'Your rights', body: 'Depending on applicable law, you may have rights to access, correct, delete or restrict the use of your data, and to complain to a supervisory authority (in Belgium, the Data Protection Authority). To exercise your rights, email hello@relavique.com.' },
         ],
       },
       'recruitment-privacy': {
@@ -1005,13 +1005,13 @@ export const en = {
         sections: [
           {
             heading: 'Who is responsible',
-            body: 'The entity responsible for applicant data (the data controller) is still to be confirmed and will be stated here before launch.',
+            body: 'The data controller for applicant data is Hatch Europe Consulting, Sterstraat 66a, 3920 Lommel, Belgium (enterprise number 1005.878.023). For any privacy question or request, email hello@relavique.com.',
           },
           { heading: 'Purpose', body: 'We use the details you submit to assess whether you may be suitable for current or future roles in client projects.' },
           { heading: 'What data we collect', body: 'Your name, email, country of residence, languages, experience, optional profile link and message. We do not ask for CVs or sensitive personal data at this stage.' },
           { heading: 'Legal basis', body: 'The legal basis for recruitment processing will be documented here after legal review.' },
           { heading: 'Retention', body: 'How long expressions of interest are kept, and how you can ask for removal, will be stated here after legal review.' },
-          { heading: 'Your rights', body: 'Depending on applicable law, you may access, correct or delete your data and complain to a supervisory authority. Contact routes will be added here.' },
+          { heading: 'Your rights', body: 'Depending on applicable law, you may access, correct or delete your data and complain to a supervisory authority (in Belgium, the Data Protection Authority). To exercise your rights, email hello@relavique.com.' },
         ],
       },
       cookies: {
